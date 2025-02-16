@@ -1,9 +1,11 @@
-class Piece:
+from abc import ABC, abstractmethod
+
+class Piece(ABC):
     def __init__(self, color: str, position: str):
         self.color = color
         self.position = position
 
-    def get_valid_moves(self, board):
+    def get_valid_moves(self, board) -> list:
         """Must be overridden by subclasses"""
         raise NotImplementedError
 

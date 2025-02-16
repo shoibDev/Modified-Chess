@@ -1,13 +1,5 @@
 from pieces.base import Piece
-from pieces import Flinger
-from pieces import Peon
-from pieces import Knight
-from pieces import Cannon
-from pieces import Queen
-from pieces import King
-from pieces import Zombie
-from pieces import Bishop
-from pieces import Rook
+from pieces import Flinger, Peon, Knight, Cannon, Queen, King, Zombie, Bishop, Rook
 
 # Map piece letters to piece classes
 PIECE_MAP = {
