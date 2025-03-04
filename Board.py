@@ -8,7 +8,7 @@ class Board:
         """Initializes an empty board with both a dictionary and a grid representation."""
         self.grid = [['.' for _ in range(8)] for _ in range(8)]
         self.pieces: dict[str, Piece] = {}  # Maps positions ('e4') to Piece objects
-        self.turn = None  # Whose turn it is ('w' or 'b')
+        self.turn = None 
 
 
     def add_piece(self, piece: Piece) -> None:
@@ -27,7 +27,7 @@ class Board:
                 piece_x = ord(pos[0]) - ord('a')
                 piece_y = 8 - int(pos[1])
 
-                # Check adjacent squares (↑, ↓, →, ←)
+                # Check adjacent squares
                 for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                     adj_x, adj_y = piece_x + dx, piece_y + dy
                     if 0 <= adj_x < 8 and 0 <= adj_y < 8:
@@ -53,13 +53,10 @@ class Board:
                     self.pieces[pos] = Zombie(piece.color, pos)
 
     def is_checkmate(self) -> bool:
-        """Check if one of the kings is captured.
-        The game ends when the opposing King is captured."""
         kings = [piece for piece in self.pieces.values() if isinstance(piece, King)]
         return len(kings) < 2  # If one or none kings remain, the game is over.
 
     def generate_successors(self) -> list:
-        """Calls MoveGenerator to get all possible successor states."""
         return MoveGenerator.generate_successor_boards(self)
 
 
@@ -72,5 +69,4 @@ class Board:
             self.grid[7 - rank][file] = str(piece)
 
     def __repr__(self) -> str:
-        """Returns a visual representation of the board."""
         return "\n".join("  ".join(row) for row in self.grid)
