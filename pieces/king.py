@@ -11,8 +11,8 @@ class King(Piece):
 
         # King moves one step in all 8 directions
         king_moves = [
-            (1, 0), (-1, 0), (0, 1), (0, -1),  # Horizontal & Vertical (↑ ↓ → ←)
-            (1, 1), (-1, -1), (1, -1), (-1, 1)  # Diagonal (↗ ↖ ↘ ↙)
+            (1, 0), (-1, 0), (0, 1), (0, -1),  # Horizontal & Vertical
+            (1, 1), (-1, -1), (1, -1), (-1, 1)  # Diagonal
         ]
 
         for dx, dy in king_moves:

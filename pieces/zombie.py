@@ -8,7 +8,7 @@ class Zombie(Piece):
         piece_x = ord(self.position[0]) - ord('a')
         piece_y = 8 - int(self.position[1])
 
-        # Zombie moves like a one-step Rook (↑ ↓ → ←)
+        # Zombie moves like a one-step Rook
         zombie_moves = [(1, 0), (-1, 0), (0, 1), (0, -1)]
 
         for dx, dy in zombie_moves:

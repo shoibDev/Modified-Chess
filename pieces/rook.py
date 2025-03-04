@@ -8,7 +8,7 @@ class Rook(Piece):
         piece_x = ord(self.position[0]) - ord('a')  # 'a' -> 0, 'h' -> 7
         piece_y = 8 - int(self.position[1])  # '1' -> 7, '8' -> 0
 
-        # Move right (→)
+        # Move right
         for i in range(piece_x + 1, 8):
             move_x = chr(i + ord('a'))
             move_pos = f"{move_x}{8 - piece_y}"
@@ -19,7 +19,7 @@ class Rook(Piece):
                 break  # Stop moving in this direction
             valid_moves.append(move_pos)
 
-        # Move left (←)
+        # Move left
         for i in range(piece_x - 1, -1, -1):
             move_x = chr(i + ord('a'))
             move_pos = f"{move_x}{8 - piece_y}"
@@ -30,7 +30,7 @@ class Rook(Piece):
                 break
             valid_moves.append(move_pos)
 
-        # Move up (↑)
+        # Move up
         for i in range(piece_y - 1, -1, -1):
             move_y = 8 - i
             move_pos = f"{self.position[0]}{move_y}"
@@ -41,7 +41,7 @@ class Rook(Piece):
                 break
             valid_moves.append(move_pos)
 
-        # Move down (↓)
+        # Move down
         for i in range(piece_y + 1, 8):
             move_y = 8 - i
             move_pos = f"{self.position[0]}{move_y}"

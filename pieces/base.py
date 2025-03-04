@@ -1,4 +1,4 @@
-from abc import ABC, abstractmethod
+from abc import ABC
 
 class Piece(ABC):
     def __init__(self, color: str, position: str):
@@ -10,5 +10,5 @@ class Piece(ABC):
         raise NotImplementedError
 
     def __repr__(self):
-        """Returns a simple representation (e.g., 'wB' for white Bishop)."""
+        """Returns a simple representation ('wB' for white Bishop)."""
         return f"{self.color}{self.__class__.__name__[0]}"

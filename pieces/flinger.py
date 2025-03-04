@@ -1,4 +1,5 @@
 from .base import Piece
+from .king import King
 
 class Flinger(Piece):
     def get_valid_moves(self, board) -> list:
@@ -44,8 +45,9 @@ class Flinger(Piece):
                         sling_pos = f"{chr(new_x + ord('a'))}{8 - new_y}"
 
                         if sling_pos in board.pieces:
-                            # If it lands on an enemy, it's a capture (but also destroys the slung piece)
-                            if board.pieces[sling_pos].color != self.color:
+                            enemy_piece = board.pieces[sling_pos]
+                            # Check if it's an enemy and not a King
+                            if enemy_piece.color != self.color and not isinstance(enemy_piece, King):
                                 sling_moves.append((adj_pos, sling_pos))  # (slung piece, landing spot)
                             break  # Stop slinging further
                         else:

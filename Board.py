@@ -1,5 +1,7 @@
+from MoveGenerator import MoveGenerator
+
 from pieces.base import Piece
-from pieces import King, Zombie
+from pieces import King, Zombie, Peon
 
 class Board:
     def __init__(self) -> None:
@@ -7,6 +9,7 @@ class Board:
         self.grid = [['.' for _ in range(8)] for _ in range(8)]
         self.pieces: dict[str, Piece] = {}  # Maps positions ('e4') to Piece objects
         self.turn = None  # Whose turn it is ('w' or 'b')
+
 
     def add_piece(self, piece: Piece) -> None:
         self.pieces[piece.position] = piece
@@ -24,7 +27,7 @@ class Board:
                 piece_x = ord(pos[0]) - ord('a')
                 piece_y = 8 - int(pos[1])
 
-                # Check adjacent squares (↑ ↓ → ←)
+                # Check adjacent squares (↑, ↓, →, ←)
                 for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
                     adj_x, adj_y = piece_x + dx, piece_y + dy
                     if 0 <= adj_x < 8 and 0 <= adj_y < 8:
@@ -34,11 +37,39 @@ class Board:
                         if adj_pos in self.pieces:
                             target_piece = self.pieces[adj_pos]
                             if not isinstance(target_piece, (King, Zombie)) and target_piece.color != piece.color:
-                                new_zombies.append((adj_pos, target_piece.color))  # Store (position, color)
+                                new_zombies.append((adj_pos, piece.color))  # Store (position, color)
 
         # Convert infected pieces to zombies
-        for pos, color in new_zombies:
-            self.pieces[pos] = Zombie(color, pos)  # Turn it into a Zombie
+        for pos, new_color in new_zombies:
+            self.pieces[pos] = Zombie(new_color, pos)  # Turn it into a Zombie
+
+    def apply_peon_promotion(self):
+        """Promote any Peon that reaches the end of the board into a Zombie."""
+        for pos, piece in list(self.pieces.items()):
+            if isinstance(piece, Peon):
+                rank = int(pos[1])
+                # White Peons promote at rank 8, Black Peons at rank 1.
+                if (piece.color == 'w' and rank == 8) or (piece.color == 'b' and rank == 1):
+                    self.pieces[pos] = Zombie(piece.color, pos)
+
+    def is_checkmate(self) -> bool:
+        """Check if one of the kings is captured.
+        The game ends when the opposing King is captured."""
+        kings = [piece for piece in self.pieces.values() if isinstance(piece, King)]
+        return len(kings) < 2  # If one or none kings remain, the game is over.
+
+    def generate_successors(self) -> list:
+        """Calls MoveGenerator to get all possible successor states."""
+        return MoveGenerator.generate_successor_boards(self)
+
+
+    def refresh_grid(self):
+        """Rebuild the grid from the current board.pieces dictionary. DEBUGGIUNG PURSPOSE ONLY!"""
+        self.grid = [['.' for _ in range(8)] for _ in range(8)]
+        for pos, piece in self.pieces.items():
+            file = ord(pos[0]) - ord('a')
+            rank = int(pos[1]) - 1
+            self.grid[7 - rank][file] = str(piece)
 
     def __repr__(self) -> str:
         """Returns a visual representation of the board."""

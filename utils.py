@@ -7,12 +7,11 @@ PIECE_MAP = {
     "Q": Queen, "K": King, "Z": Zombie, "B": Bishop, "R": Rook
 }
 
-def parse_board(board_path: str = 'board.txt') -> tuple[str, list[Piece]]:
-    """Reads board.txt and returns (turn, piece_list) using JSON."""
-    with open(board_path, "r") as f:
-        lines = f.readlines()
+def parse_board() -> tuple[str, list[Piece]]:
+    import sys
+    lines = sys.stdin.readlines()
 
-    #Read first line (get turn info)
+    # Read the first line to get turn info (e.g., "w 0 60000 0")
     turn, _, _, _ = lines[0].split()
 
     piece_list: list[Piece] = []
@@ -20,7 +19,6 @@ def parse_board(board_path: str = 'board.txt') -> tuple[str, list[Piece]]:
 
     for line in lines[1:]:
         line = line.strip()
-
         if line == "{":  # Start reading pieces
             inside_braces = True
             continue
@@ -29,14 +27,12 @@ def parse_board(board_path: str = 'board.txt') -> tuple[str, list[Piece]]:
             break
 
         if inside_braces:
-            # Expecting lines like: "a1: 'wF',"
             if ":" in line:
                 position, piece_code = line.split(":")
                 position = position.strip()
-                piece_code = piece_code.strip().strip("',")  # Remove quotes and comma
-
+                # Remove quotes, commas, and any extra whitespace.
+                piece_code = piece_code.strip().strip("',")
                 color, piece_type = piece_code[0], piece_code[1]
-
                 piece = PIECE_MAP[piece_type](color, position)
                 piece_list.append(piece)
 

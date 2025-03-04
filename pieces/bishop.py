@@ -18,7 +18,7 @@ class Bishop(Piece):
                 break
             valid_moves.append(move_pos)
 
-        # Move diagonally up-left (↖)
+        # Move diagonally up-left
         for i in range(1, 8):
             move_x, move_y = piece_x - i, piece_y - i
             if move_x < 0 or move_y < 0: break
@@ -29,7 +29,7 @@ class Bishop(Piece):
                 break
             valid_moves.append(move_pos)
 
-        # Move diagonally down-right (↘)
+        # Move diagonally down-right
         for i in range(1, 8):
             move_x, move_y = piece_x + i, piece_y + i
             if move_x > 7 or move_y > 7: break
@@ -40,7 +40,7 @@ class Bishop(Piece):
                 break
             valid_moves.append(move_pos)
 
-        # Move diagonally down-left (↙)
+        # Move diagonally down-left
         for i in range(1, 8):
             move_x, move_y = piece_x - i, piece_y + i
             if move_x < 0 or move_y > 7: break
