@@ -11,4 +11,5 @@ class Piece(ABC):
 
     def __repr__(self):
         """Returns a simple representation ('wB' for white Bishop)."""
-        return f"{self.color}{self.__class__.__name__[0]}"
+        symbol = "N" if self.__class__.__name__ == "Knight" else self.__class__.__name__[0]
+        return f"{self.color}{symbol}"

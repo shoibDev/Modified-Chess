@@ -27,15 +27,17 @@ def main():
     for idx, board in enumerate(successors):
         filename = f"board.{idx:03d}"
         with open(filename, "w") as f:
-            # Set the first line: flipped turn followed by "0 0 0"
+            # Set the first line: flipped turn followed by "0 6000 0" (or "0 0 0" if that's what you require)
             flipped_turn = MoveGenerator.flip_turn(turn)
-            f.write(f"{flipped_turn} 0 6000 0\n")  # Ensure correct format: "b 0 0 0" or "w 0 0 0"
+            f.write(f"{flipped_turn} 0 6000 0\n")
 
             # Write the board state inside braces.
             f.write("{\n")
             for pos in sorted(board.pieces.keys()):
                 piece = board.pieces[pos]
-                f.write(f"  {pos}: '{piece.color}{piece.__class__.__name__[0]}',\n")
+                # Use "N" for Knight, otherwise use the first character of the class name.
+                symbol = "N" if piece.__class__.__name__ == "Knight" else piece.__class__.__name__[0]
+                f.write(f"  {pos}: '{piece.color}{symbol}',\n")
             f.write("}\n")
 
             # Write the final three reserved lines, always "0"
