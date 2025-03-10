@@ -24,19 +24,19 @@ def main():
     #     print(board)
     #     print("\n")
 
-    # Write each successor board to a file named board.000, board.001, etc.
     for idx, board in enumerate(successors):
         filename = f"board.{idx:03d}"
         with open(filename, "w") as f:
-            # Assuming meta_line is the first line of input.
-            # Here, simply write the turn flipped plus reserved numbers as needed.
-            meta_parts = turn.split()  # adjust accordingly if you stored meta_line differently.
-            meta_parts[0] = MoveGenerator.flip_turn(meta_parts[0])
-            f.write(" ".join(meta_parts) + "\n")
+            # Set the first line: flipped turn followed by "0 0 0"
+            flipped_turn = MoveGenerator.flip_turn(turn)
+            f.write(f"{flipped_turn} 0 6000 0\n")  # Ensure correct format: "b 0 0 0" or "w 0 0 0"
+
+            # Write the board state inside braces.
             f.write("{\n")
             for pos in sorted(board.pieces.keys()):
                 piece = board.pieces[pos]
                 f.write(f"  {pos}: '{piece.color}{piece.__class__.__name__[0]}',\n")
             f.write("}\n")
-            # Write the final 3 reserved lines (assuming they are known).
+
+            # Write the final three reserved lines, always "0"
             f.write("0\n0\n0\n")
