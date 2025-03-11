@@ -19,29 +19,29 @@ class Board:
         self.grid[7 - rank][file] = str(piece)  # Store string representation
 
     def apply_zombie_contagion(self):
-        """After a turn, adjacent enemy pieces to zombies become zombies."""
-        new_zombies = []  # Store newly infected pieces
+        new_zombies = []  # Store newly infected pieces as (position, new_color)
 
         for pos, piece in self.pieces.items():
-            if isinstance(piece, Zombie):  # Find all zombies
+            # Only consider zombies belonging to the player who just moved.
+            if isinstance(piece, Zombie) and piece.color == self.turn:
                 piece_x = ord(pos[0]) - ord('a')
                 piece_y = 8 - int(pos[1])
-
-                # Check adjacent squares
+                # Check the 4 orthogonal adjacent squares: up, down, left, right.
                 for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
-                    adj_x, adj_y = piece_x + dx, piece_y + dy
+                    adj_x = piece_x + dx
+                    adj_y = piece_y + dy
                     if 0 <= adj_x < 8 and 0 <= adj_y < 8:
                         adj_pos = f"{chr(adj_x + ord('a'))}{8 - adj_y}"
-
-                        # If there's an enemy piece that isn't a King or another Zombie, convert it
                         if adj_pos in self.pieces:
                             target_piece = self.pieces[adj_pos]
+                            # If the piece is an enemy (different color), and is not a King or Zombie,
+                            # mark it for contagion.
                             if not isinstance(target_piece, (King, Zombie)) and target_piece.color != piece.color:
-                                new_zombies.append((adj_pos, piece.color))  # Store (position, color)
-
-        # Convert infected pieces to zombies
+                                new_zombies.append((adj_pos, piece.color))
+                                
+        # Convert all marked pieces into zombies of the contagion color.
         for pos, new_color in new_zombies:
-            self.pieces[pos] = Zombie(new_color, pos)  # Turn it into a Zombie
+            self.pieces[pos] = Zombie(new_color, pos)
 
     def apply_peon_promotion(self):
         """Promote any Peon that reaches the end of the board into a Zombie."""
