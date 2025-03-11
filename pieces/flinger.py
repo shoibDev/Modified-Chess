@@ -5,72 +5,73 @@ from .king import King
 class Flinger(Piece):
     def get_valid_moves(self, board) -> list:
         valid_moves = []
+        fx = ord(self.position[0]) - ord('a')
+        fy = 8 - int(self.position[1])
 
-        piece_x = ord(self.position[0]) - ord('a')
-        piece_y = 8 - int(self.position[1])
-
-        # King moves (1 step in any direction)
         king_moves = [
             (1, 0), (-1, 0), (0, 1), (0, -1),
             (1, 1), (-1, -1), (1, -1), (-1, 1)
         ]
 
         for dx, dy in king_moves:
-            move_x, move_y = piece_x + dx, piece_y + dy
-            if 0 <= move_x < 8 and 0 <= move_y < 8:
-                move_pos = f"{chr(move_x + ord('a'))}{8 - move_y}"
-                if move_pos not in board.pieces:
-                    valid_moves.append(move_pos)
-
+            nx, ny = fx + dx, fy + dy
+            if 0 <= nx < 8 and 0 <= ny < 8:
+                new_pos = f"{chr(nx + ord('a'))}{8 - ny}"
+                # Flinger can't move onto occupied squares
+                if new_pos not in board.pieces:
+                    valid_moves.append(new_pos)
         return valid_moves
 
     def get_sling_moves(self, board) -> list:
         sling_moves = []
+        fx = ord(self.position[0]) - ord('a')
+        fy = 8 - int(self.position[1])
 
-        piece_x = ord(self.position[0]) - ord('a')
-        piece_y = 8 - int(self.position[1])
+        # Directions for adjacency (8 squares around the Flinger).
+        adjacent_dirs = [
+            (1, 0), (-1, 0), (0, 1), (0, -1),
+            (1, 1), (-1, -1), (1, -1), (-1, 1)
+        ]
 
-        # Check all 8 adjacent squares for friendly pieces
-        for dx, dy in [(1, 0), (-1, 0), (0, 1), (0, -1), (1, 1), (-1, -1), (1, -1), (-1, 1)]:
-            adj_x, adj_y = piece_x + dx, piece_y + dy
-
-            if not (0 <= adj_x < 8 and 0 <= adj_y < 8):
+        for dx, dy in adjacent_dirs:
+            # Adjacent square coordinates
+            ax, ay = fx + dx, fy + dy
+            # Check if it's on the board
+            if not (0 <= ax < 8 and 0 <= ay < 8):
                 continue
 
-            adj_pos = f"{chr(adj_x + ord('a'))}{8 - adj_y}"
-
+            adj_pos = f"{chr(ax + ord('a'))}{8 - ay}"
+            # If there's a friendly piece at (ax, ay), we can sling it
             if adj_pos in board.pieces and board.pieces[adj_pos].color == self.color:
-                # Sling in both directions
-                for direction_multiplier in [1, -1]:
-                    sling_dx = dx * direction_multiplier
-                    sling_dy = dy * direction_multiplier
+                # Vector from the adjacent piece -> Flinger = (fx - ax, fy - ay)
+                vx = fx - ax
+                vy = fy - ay
 
-                    new_x, new_y = adj_x, adj_y
+                # Start from the Flinger's square, then move one step in (vx, vy),
+                # continuing until we exit the board or hit an enemy (not a King).
+                nx, ny = fx, fy
+                while True:
+                    nx += vx
+                    ny += vy
+                    # Off the board?
+                    if not (0 <= nx < 8 and 0 <= ny < 8):
+                        break
 
-                    while True:
-                        new_x += sling_dx
-                        new_y += sling_dy
+                    new_pos = f"{chr(nx + ord('a'))}{8 - ny}"
 
-                        # Check if still on the board
-                        if not (0 <= new_x < 8 and 0 <= new_y < 8):
-                            break
+                    # If we land on the Flinger's own square again, skip it
+                    # (Though practically we won't re-encounter the same spot if vx,vy != (0,0))
+                    if new_pos == self.position:
+                        continue
 
-                        sling_pos = f"{chr(new_x + ord('a'))}{8 - new_y}"
-
-                        # Skip the flinger's own position
-                        if sling_pos == self.position:
-                            continue
-
-                        if sling_pos in board.pieces:
-                            target_piece = board.pieces[sling_pos]
-                            if target_piece.color != self.color:
-                                if not isinstance(target_piece, King):
-                                    # Valid capture (enemy non-King)
-                                    sling_moves.append((adj_pos, sling_pos))
-                                # Continue to check beyond Kings
-                            # Fly over friendlies without stopping
-                        else:
-                            # Valid empty landing spot
-                            sling_moves.append((adj_pos, sling_pos))
-
+                    if new_pos in board.pieces:
+                        target_piece = board.pieces[new_pos]
+                        # If it's an enemy (not a King), capture
+                        if target_piece.color != self.color and not isinstance(target_piece, King):
+                            sling_moves.append((adj_pos, new_pos))  # Capture + slung piece destroyed
+                        break
+                    else:
+                        # It's empty -> valid landing
+                        sling_moves.append((adj_pos, new_pos))
+             
         return sling_moves
