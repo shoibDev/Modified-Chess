@@ -2,11 +2,12 @@
 A3 grader initiated for user mwahab
 Searching repo for files:
   compile: found!
-  a3: found!
-Adjusting permissions on compile and a3.
+Adjusting permissions on compile.
 Running ./compile
 Command compile generated no output.
 And no error messages.
+  a3: found!
+Adjusting permissions on a3.
 ================================================================================
 Test Case 0
 Turn: w
@@ -24,44 +25,13 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 24 output boards
+  Found 26 output boards
   Found 14 solution boards
-  You generated 1 illegal boards.
-None  You missed 14 legal boards.
+  You generated 11 illegal boards.
 +--------+
 |fncqkbnr|
 |ppppzppp|
-|        |
-|        |
-|        |
-|       P|
-|PPPPZPP |
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
-|        |
-|        |
-|    Z   |
-|PPPP PPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
-|        |
-|        |
-|N       |
-|PPPPZPPP|
-|F CQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
+|     P  |
 |        |
 |        |
 |        |
@@ -71,20 +41,10 @@ None  You missed 14 legal boards.
 +--------+
 |fncqkbnr|
 |ppppzppp|
-|        |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
-|        |
-|        |
 |P       |
+|        |
+|        |
+|        |
 | PPPZPPP|
 |FNCQKBNR|
 +--------+
@@ -94,7 +54,47 @@ None  You missed 14 legal boards.
 |        |
 |        |
 |        |
-| P      |
+|  P     |
+|P PPZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+| pppzppp|
+|        |
+|        |
+|        |
+|        |
+| PPPZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|ppppzppp|
+|        |
+|        |
+|P       |
+|        |
+| PPPZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|ppppzppp|
+|        |
+|        |
+|   P    |
+|        |
+|P PPZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbn |
+|ppppzppp|
+|        |
+|        |
+|        |
+|        |
 |P PPZPPP|
 |FNCQKBNR|
 +--------+
@@ -102,75 +102,46 @@ None  You missed 14 legal boards.
 |fncqkbnr|
 |ppppzppp|
 |        |
+|    P   |
 |        |
 |        |
-|   P    |
-|PPP ZPPP|
+|P PPZPPP|
+|FNCQKBNR|
++--------+
++--------+
+| ncqkbnr|
+|ppppzppp|
+|        |
+|        |
+|        |
+|        |
+| PPPZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|ppppzp p|
+|        |
+|        |
+|        |
+|        |
+|P PPZPPP|
 |FNCQKBNR|
 +--------+
 +--------+
 |fncqkbnr|
 |ppppzppp|
 |        |
+|P       |
 |        |
 |        |
-|     P  |
-|PPPPZ PP|
+| PPPZPPP|
 |FNCQKBNR|
 +--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
-|        |
-|        |
-|        |
-|PPP ZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
-|        |
-|        |
-|  N     |
-|PPPPZPPP|
-|F CQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
-|        |
-|        |
-|       N|
-|PPPPZPPP|
-|FNCQKB R|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
-|        |
-|        |
-|     N  |
-|PPPPZPPP|
-|FNCQKB R|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzppp|
-|        |
-|        |
-|        |
-|      P |
-|PPPPZP P|
-|FNCQKBNR|
-+--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/14
+3/14
 ================================================================================
 Test Case 1
 Turn: b
@@ -188,15 +159,54 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 24 output boards
+  Found 26 output boards
   Found 14 solution boards
-  You generated 1 illegal boards.
-None  You missed 14 legal boards.
+  You generated 11 illegal boards.
 +--------+
 |fncqkbnr|
 |p ppzppp|
 |        |
 |        |
+|        |
+|  P  p  |
+|PP PZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+| pppzppp|
+|        |
+|        |
+|        |
+|  P     |
+| P PZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+| pppzppp|
+|        |
+|        |
+|p       |
+|  P     |
+|PP PZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|p ppzppp|
+|        |
+|        |
+|    p   |
+|  P     |
+|PP PZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|p ppzppp|
+|        |
+|   p    |
 |        |
 |  P     |
 |PP PZPPP|
@@ -204,7 +214,17 @@ None  You missed 14 legal boards.
 +--------+
 +--------+
 |fncqkbnr|
-|pp pzppp|
+|p ppzppp|
+|        |
+|        |
+|        |
+|  P     |
+|PP PZP P|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|p ppzppp|
 |  p     |
 |        |
 |        |
@@ -214,127 +234,48 @@ None  You missed 14 legal boards.
 +--------+
 +--------+
 |fncqkbnr|
-|pppp ppp|
-|    z   |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppz pp|
-|     p  |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppppzpp |
-|       p|
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppp zppp|
-|   p    |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
 |p ppzppp|
-| p      |
 |        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkb r|
-|ppppzppp|
-|       n|
 |        |
 |        |
 |  P     |
 |PP PZPPP|
-|FNCQKBNR|
+|FNCQKBN |
 +--------+
 +--------+
 |fncqkbnr|
-|ppppzp p|
-|      p |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkb r|
-|ppppzppp|
-|     n  |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|f cqkbnr|
-|ppppzppp|
-|n       |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|ppp zppp|
+| pppzppp|
 |        |
 |        |
 |        |
-|  P     |
+|p P     |
 |PP PZPPP|
 |FNCQKBNR|
 +--------+
 +--------+
 |fncqkbnr|
 | pppzppp|
+|        |
+|        |
+|        |
+|  P     |
+|PP PZPPP|
+| NCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+| pppzppp|
+|        |
 |p       |
 |        |
-|        |
 |  P     |
 |PP PZPPP|
 |FNCQKBNR|
 +--------+
-+--------+
-|f cqkbnr|
-|ppppzppp|
-|  n     |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/14
+3/14
 ================================================================================
 Test Case 2
 Turn: w
@@ -352,27 +293,26 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 22 output boards
+  Found 28 output boards
   Found 17 solution boards
-  You generated 1 illegal boards.
-None  You missed 17 legal boards.
+  You generated 10 illegal boards.
 +--------+
 |fncqkbnr|
 |p ppzppp|
-| p      |
+|Pp      |
 |        |
 |        |
 |  P     |
-|PP  ZPPP|
+| P PZPPP|
 |FNCQKBNR|
 +--------+
 +--------+
 |fncqkbnr|
 |p ppzppp|
 | p      |
+|P       |
 |        |
-|        |
-|P P     |
+|  P     |
 | P PZPPP|
 |FNCQKBNR|
 +--------+
@@ -381,79 +321,19 @@ None  You missed 17 legal boards.
 |p ppzppp|
 | p      |
 |        |
-|        |
-| QP     |
-|PP PZPPP|
-|FNC KBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-|  P    P|
-|PP PZPP |
+|P       |
+|  P     |
+| P PZPPP|
 |FNCQKBNR|
 +--------+
 +--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-|  PP    |
-|PP  ZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
+| ncqkbnr|
 |p ppzppp|
 | p      |
 |        |
 |        |
 |  P     |
-|PPQPZPPP|
-|FNC KBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-|  P    N|
-|PP PZPPP|
-|FNCQKB R|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-|  P  N  |
-|PP PZPPP|
-|FNCQKB R|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-|  P   P |
-|PP PZP P|
+| P PZPPP|
 |FNCQKBNR|
 +--------+
 +--------+
@@ -461,63 +341,13 @@ None  You missed 17 legal boards.
 |p ppzppp|
 | p      |
 |        |
-|        |
-|  P Z   |
-|PP P PPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
+|   P    |
 |  P     |
-|        |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|Q       |
-|  P     |
-|PP PZPPP|
-|FNC KBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-| PP     |
 |P  PZPPP|
 |FNCQKBNR|
 +--------+
 +--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-|  P  P  |
-|PP PZ PP|
-|FNCQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-| p      |
-|        |
-|        |
-|N P     |
-|PP PZPPP|
-|F CQKBNR|
-+--------+
-+--------+
-|fncqkbnr|
+|fncqkbn |
 |p ppzppp|
 | p      |
 |        |
@@ -526,9 +356,50 @@ None  You missed 17 legal boards.
 |P  PZPPP|
 |FNCQKBNR|
 +--------+
++--------+
+|fncqkbnr|
+|p ppzppp|
+| p      |
+|    P   |
+|        |
+|  P     |
+|P  PZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|  ppzppp|
+| p      |
+|        |
+|        |
+|  P     |
+| P PZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|p ppzp p|
+| p      |
+|        |
+|        |
+|  P     |
+|P  PZPPP|
+|FNCQKBNR|
++--------+
++--------+
+|fncqkbnr|
+|p ppzppp|
+| p   P  |
+|        |
+|        |
+|  P     |
+|P  PZPPP|
+|FNCQKBNR|
++--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/17
+7/17
 ================================================================================
 Test Case 3
 Turn: b
@@ -546,25 +417,44 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 19 output boards
+  Found 20 output boards
   Found 14 solution boards
-  You generated 1 illegal boards.
-None  You missed 14 legal boards.
+  You generated 5 illegal boards.
 +--------+
 |fncqkbnr|
-|p  pzppp|
-| pp     |
+|  ppzppp|
+| p      |
 |        |
 |        |
+|p P     |
+|PPCPZPPP|
+|FN QKBNR|
++--------+
++--------+
+|fncqkbnr|
+|  ppzppp|
+| p      |
+|        |
+|p       |
 |  P     |
 |PPCPZPPP|
 |FN QKBNR|
 +--------+
 +--------+
 |fncqkbnr|
-|p ppz pp|
-| p   p  |
+|  ppzppp|
+| p      |
 |        |
+|        |
+|  P     |
+|PPCPZPPP|
+| N QKBNR|
++--------+
++--------+
+|fncqkbnr|
+|  ppzppp|
+| p      |
+|p       |
 |        |
 |  P     |
 |PPCPZPPP|
@@ -573,126 +463,17 @@ None  You missed 14 legal boards.
 +--------+
 |fncqkbnr|
 |  ppzppp|
-|pp      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p p zppp|
 | p      |
 |        |
 |        |
 |  P     |
-|PPCPZPPP|
+| PCPZPPP|
 |FN QKBNR|
 +--------+
-+--------+
-|fncqkbnr|
-|p ppzp p|
-| p    p |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|f cqkbnr|
-|p ppzppp|
-| pn     |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzpp |
-| p     p|
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p pp ppp|
-| p  z   |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkb r|
-|p ppzppp|
-| p     n|
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p p zppp|
-| p p    |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzppp|
-|        |
-| p      |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|f cqkbnr|
-|p ppzppp|
-|np      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkb r|
-|p ppzppp|
-| p   n  |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/14
+9/14
 ================================================================================
 Test Case 4
 Turn: w
@@ -710,17 +491,16 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 22 output boards
+  Found 28 output boards
   Found 16 solution boards
-  You generated 1 illegal boards.
-None  You missed 16 legal boards.
+  You generated 11 illegal boards.
 +--------+
 | ncqkbnr|
-|pfppzppp|
+| fppzppp|
 | p      |
 |        |
 |        |
-|P P     |
+|  P     |
 | PCPZPPP|
 |FN QKBNR|
 +--------+
@@ -729,69 +509,69 @@ None  You missed 16 legal boards.
 |pfppzppp|
 | p      |
 |        |
-|        |
-|  P  P  |
-|PPCPZ PP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
+|   P    |
 |  P     |
-|        |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|  P  N  |
-|PPCPZPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FNQ KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|  P Z   |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-| PP     |
 |P CPZPPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
-|pfppzpp |
+|pfppzppp|
+| p      |
+|    P   |
+|        |
+|  P     |
+|P CPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|pfppzppp|
+| p      |
+|        |
+|P       |
+|  P     |
+| PCPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|pfppzppp|
+| p   P  |
+|        |
+|        |
+|  P     |
+|P CPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|pfppzppp|
+| p      |
+|P       |
+|        |
+|  P     |
+| PCPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|pfppzppp|
+|Pp      |
+|        |
+|        |
+|  P     |
+| PCPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|pfppzp p|
 | p      |
 |        |
 |        |
 |  P     |
-|PPCPZPPP|
+|P CPZPPP|
 |FN QKBNR|
 +--------+
 +--------+
@@ -800,83 +580,34 @@ None  You missed 16 legal boards.
 | p      |
 |        |
 |        |
-|  P    P|
-|PPCPZPP |
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|  P    N|
+|  P     |
 |PPCPZPPP|
-|FN QKB R|
+|F NQKBNR|
 +--------+
 +--------+
-| ncqkbnr|
+| ncqkbn |
 |pfppzppp|
 | p      |
 |        |
 |        |
 |  P     |
-|PPCPZPPP|
-|FN  KBNR|
+|P CPZPPP|
+|FN QKBNR|
 +--------+
 +--------+
-| ncqkbnr|
+|Zncqkbnr|
 |pfppzppp|
 | p      |
 |        |
 |        |
 |  P     |
-|PPCPZPPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|  P   P |
-|PPCPZP P|
+| PCPZPPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|N P     |
-|PPCPZPPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzppp|
-| p      |
-|        |
-|        |
-|  PP    |
-|PPC ZPPP|
-|FN QKBNR|
-+--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/16
+5/16
 ================================================================================
 Test Case 5
 Turn: b
@@ -894,193 +625,22 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 26 output boards
+  Found 35 output boards
   Found 29 solution boards
-  You generated 1 illegal boards.
-None  You missed 29 legal boards.
+  You generated 5 illegal boards.
 +--------+
 | ncqkbnr|
-|pf pzpp |
-| pp     |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
 |pfppzpp |
-| p   n  |
 |        |
 |        |
-|  P     |
+|        |
+| pP     |
 |PPCPZPPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
-|pfpp pp |
-| p  z   |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|pfppzpp |
-| p      |
-|        |
-|        |
-| nP     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfp zpp |
-| p      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|pfppzpp |
-| p      |
-|        |
-|       r|
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|pfppzpp |
-| p      |
-| n      |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|pfppzpp |
-| p      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|Fn QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-| fppzpp |
-|pp      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzp  |
-| p    p |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|pfppzpp |
-| p      |
-|        |
-|        |
-|  P     |
-|PPCPZPPr|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzpp |
-|        |
-| p      |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|pfppzpp |
-| p      |
-|        |
-|        |
-|  P     |
-|PnCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| n qkbnr|
-|pfppzpp |
-|cp      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|pfppzpp |
-| p      |
-|        |
-| n      |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|pfppzpp |
-| p     r|
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|pfppzpp |
-| p      |
-|       r|
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|fncqkbnr|
-|p ppzpp |
+|pf pzppp|
 | p      |
 |        |
 |        |
@@ -1090,107 +650,38 @@ None  You missed 29 legal boards.
 +--------+
 +--------+
 | ncqkbnr|
-|pfppz p |
-| p   p  |
+|pfppzpp |
 |        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|pfppzppr|
-| p      |
 |        |
 |        |
 |  P     |
 |PPCPZPPP|
+|F  QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|pfppzpp |
+|        |
+|        |
+|        |
+|  P     |
+|P CPZPPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
-|p ppzpp |
-|fp      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
 |pfppzpp |
+|        |
+|        |
 | p      |
-|        |
-|        |
-|  P    r|
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-| fppzppp|
-| p      |
-|        |
-|        |
 |  P     |
 |PPCPZPPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ncqkb r|
-|pfppzpp |
-| p     n|
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfp zpp |
-| p p    |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| p      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|pfppzpp |
-| pn     |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|pfppzpp |
-|np      |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/29
+24/29
 ================================================================================
 Test Case 6
 Turn: w
@@ -1208,17 +699,76 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 21 output boards
+  Found 27 output boards
   Found 15 solution boards
-  You generated 1 illegal boards.
-None  You missed 15 legal boards.
+  You generated 11 illegal boards.
++--------+
+| ncqkbnr|
+|p ppzpp |
+| pf  P  |
+|        |
+|        |
+|  P     |
+|P CPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p ppzpp |
+|Ppf     |
+|        |
+|        |
+|  P     |
+| PCPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p ppzp  |
+| pf     |
+|        |
+|        |
+|  P     |
+|P CPZPPP|
+|FN QKBNR|
++--------+
 +--------+
 | ncqkbnr|
 |p ppzpp |
 | pf     |
 |        |
+|P       |
+|  P     |
+| PCPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbn |
+|p ppzpp |
+| pf     |
 |        |
-| PP     |
+|        |
+|  P     |
+|P CPZPPP|
+|FN QKBNR|
++--------+
++--------+
+|Zncqkbnr|
+|p ppzpp |
+| pf     |
+|        |
+|        |
+|  P     |
+| PCPZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p ppzpp |
+| pf     |
+|    P   |
+|        |
+|  P     |
 |P CPZPPP|
 |FN QKBNR|
 +--------+
@@ -1228,127 +778,27 @@ None  You missed 15 legal boards.
 | pf     |
 |        |
 |        |
-|  PP    |
-|PPC ZPPP|
+|  P     |
+|PPCPZPPP|
+|F NQKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p ppzpp |
+| pf     |
+|P       |
+|        |
+|  P     |
+| PCPZPPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|  P     |
-|        |
-|PPCPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
+|  ppzpp |
 | pf     |
 |        |
 |        |
 |  P     |
-|PPCPZPPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P  N  |
-|PPCPZPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P   P |
-|PPCPZP P|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P     |
-|PP PZPPP|
-|FNCQKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P    N|
-|PPCPZPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P     |
-|PPCPZPPP|
-|FNQ KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P    P|
-|PPCPZPP |
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|N P     |
-|PPCPZPPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  P Z   |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|P P     |
 | PCPZPPP|
 |FN QKBNR|
 +--------+
@@ -1357,14 +807,15 @@ None  You missed 15 legal boards.
 |p ppzpp |
 | pf     |
 |        |
-|        |
-|  P  P  |
-|PPCPZ PP|
+|   P    |
+|  P     |
+|P CPZPPP|
 |FN QKBNR|
 +--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/15
+4/15
 ================================================================================
 Test Case 7
 Turn: b
@@ -1382,343 +833,23 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 22 output boards
+  Found 34 output boards
   Found 33 solution boards
   You generated 1 illegal boards.
-None  You missed 33 legal boards.
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf     |
-|        |
-|       r|
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
 +--------+
 | ncqkbnr|
 |p ppzpp |
-| p f    |
+|p f     |
 |        |
 |        |
 | CP     |
 |PP PZPPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f    p|
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf     |
-|       r|
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-| Cp     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzp  |
-| pf   p |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf     |
-|        |
-|        |
-| CP    r|
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|  p     |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p p zpp |
-| pf     |
-| p      |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-| CP     |
-|PPpPZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p p zpp |
-| pf     |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  ppzpp |
-|ppf     |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f   p |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f p   |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f     |
-| p      |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p pp pp |
-| pf z   |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FNpQKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  fp    |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzpp |
-| p      |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| p      |
-|   f    |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|  p     |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f  p  |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
-|p ppzpp |
-| pf    n|
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf    r|
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|p ppzpp |
-|npf     |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| p      |
-|  f     |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p p zpp |
-| pfp    |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppz p |
-| pf  p  |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf     |
-|        |
-|        |
-| CP     |
-|PP PZPPr|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
-|p ppzpp |
-| pf  n  |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| p      |
-| f      |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p p zpp |
-| pf     |
-|        |
-|p       |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzppr|
-| pf     |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/33
+32/33
 ================================================================================
 Test Case 8
 Turn: w
@@ -1736,54 +867,53 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 23 output boards
+  Found 29 output boards
   Found 17 solution boards
-  You generated 1 illegal boards.
-None  You missed 17 legal boards.
+  You generated 11 illegal boards.
 +--------+
 | ncqkbnr|
+|p ppzpp |
+| pf     |
+|    P   |
+|        |
+| CP     |
+|P  PZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  ppzpp |
+| pf     |
+|        |
+|        |
+| CP     |
+| P PZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbn |
 |p ppzpp |
 | pf     |
 |        |
 |        |
 | CP     |
-|PPQPZPPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-| CP     |
-|PP PZPPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-| CP    N|
-|PP PZPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-| C      |
-|  P     |
-|PP PZPPP|
+|P  PZPPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |p ppzpp |
 | pf     |
+|        |
+|P       |
+| CP     |
+| P PZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p ppzpp |
+|Ppf     |
 |        |
 |        |
 | CP     |
@@ -1796,27 +926,17 @@ None  You missed 17 legal boards.
 | pf     |
 |        |
 |        |
-| CP Z   |
-|PP P PPP|
-|FN QKBNR|
+| CP     |
+|PP PZPPP|
+|F NQKBNR|
 +--------+
 +--------+
-| ncqkbnr|
+|Zncqkbnr|
 |p ppzpp |
 | pf     |
 |        |
 |        |
-| CP  P  |
-|PP PZ PP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|PCP     |
+| CP     |
 | P PZPPP|
 |FN QKBNR|
 +--------+
@@ -1824,95 +944,46 @@ None  You missed 17 legal boards.
 | ncqkbnr|
 |p ppzpp |
 | pf     |
+|P       |
 |        |
-|        |
-| CPP    |
-|PP  ZPPP|
+| CP     |
+| P PZPPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|NCP     |
-|PP PZPPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-| CP    P|
-|PP PZPP |
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
-|p ppz p |
+|p ppzp  |
 | pf     |
 |        |
 |        |
 | CP     |
-|PP PZPPP|
+|P  PZPPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |p ppzpp |
 | pf     |
+|        |
+|   P    |
+| CP     |
+|P  PZPPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p ppzpp |
+| pf  P  |
 |        |
 |        |
 | CP     |
-|PP PZPPP|
-|FNQ KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-| CP   P |
-|PP PZP P|
+|P  PZPPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|  P     |
-| C      |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-| CP  N  |
-|PP PZPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|C P     |
-|PP PZPPP|
-|FN QKBNR|
-+--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/17
+6/17
 ================================================================================
 Test Case 9
 Turn: b
@@ -1930,343 +1001,23 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 22 output boards
+  Found 34 output boards
   Found 33 solution boards
   You generated 1 illegal boards.
-None  You missed 33 legal boards.
 +--------+
 | ncqkbnr|
 |p ppzpp |
-|  f   p |
+|p f     |
 |        |
 |        |
 |  PZ    |
 |PPCP PPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|  p     |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p p zpp |
-| pfp    |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| p      |
-|   f    |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p pp pp |
-| pf z   |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FNpQKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| p f    |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pfppzpp |
-| p      |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f     |
-| p      |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|  p     |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f    p|
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p p zpp |
-| pf     |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf     |
-|        |
-|       r|
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|p ppzpp |
-|npf     |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f  p  |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf     |
-|       r|
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  pZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  fp    |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzppr|
-| pf     |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p p zpp |
-| pf     |
-| p      |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
-|p ppzpp |
-| pf  n  |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  ppzpp |
-|ppf     |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf    r|
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzp  |
-| pf   p |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| p      |
-| f      |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  PZ    |
-|PPCP PPr|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  PZ    |
-|PPpP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
-|p ppzpp |
-| pf    n|
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppz p |
-| pf  p  |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-| p      |
-|  f     |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p ppzpp |
-|  f p   |
-|        |
-|        |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p p zpp |
-| pf     |
-|        |
-|p       |
-|  PZ    |
-|PPCP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p ppzpp |
-| pf     |
-|        |
-|        |
-|  PZ   r|
-|PPCP PPP|
-|FN QKBNR|
-+--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/33
+32/33
 ================================================================================
 Test Case 10
 Turn: w
@@ -2284,18 +1035,57 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 28 output boards
+  Found 34 output boards
   Found 22 solution boards
-  You generated 1 illegal boards.
-None  You missed 22 legal boards.
+  You generated 11 illegal boards.
++--------+
+|Zncqkbnr|
+|p  pzpp |
+| pf     |
+|        |
+|        |
+|  PZ    |
+| P P PPP|
+|FN QKBNR|
++--------+
 +--------+
 | ncqkbnr|
 |p  pzpp |
 | pf     |
+|    P   |
 |        |
-|   Z    |
-|  P     |
-|PP P PPP|
+|  PZ    |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p  pzp  |
+| pf     |
+|        |
+|        |
+|  PZ    |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p  pzpp |
+| pf     |
+|P       |
+|        |
+|  PZ    |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p  pzpp |
+| pf  P  |
+|        |
+|        |
+|  PZ    |
+|P  P PPP|
 |FN QKBNR|
 +--------+
 +--------+
@@ -2303,108 +1093,18 @@ None  You missed 22 legal boards.
 |p  pzpp |
 | pf     |
 |        |
-|        |
-|  PZ N  |
-|PP P PPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
+|P       |
 |  PZ    |
-|PP PBPPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|Q       |
-|  PZ    |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|  P     |
-|   Z    |
-|PP P PPP|
+| P P PPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |p  pzpp |
-| pf     |
+|Ppf     |
 |        |
 |        |
 |  PZ    |
-|PP PKPPP|
-|FN Q BNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|      Q |
-|  PZ    |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  PZ    |
-|PPQP PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  P Z   |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|       Q|
-|        |
-|  PZ    |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  PZ Q  |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|P PZ    |
 | P P PPP|
 |FN QKBNR|
 +--------+
@@ -2415,102 +1115,43 @@ None  You missed 22 legal boards.
 |        |
 |        |
 |  PZ    |
-|PP PNPPP|
-|FN QKB R|
+|PP P PPP|
+|F NQKBNR|
 +--------+
 +--------+
-| ncqkbnr|
+| ncqkbn |
 |p  pzpp |
 | pf     |
 |        |
 |        |
 |  PZ    |
-|PP P PPP|
-|FNQ KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-| PPZ    |
 |P  P PPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-| QPZ    |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  PZ  P |
-|PP P P P|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  PZ P  |
-|PP P  PP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|N PZ    |
-|PP P PPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| pf     |
-|        |
-|        |
-|  PZ   P|
-|PP P PP |
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
+|   pzpp |
 | pf     |
 |        |
 |        |
 |  PZ    |
-|PP PQPPP|
-|FN  KBNR|
+| P P PPP|
+|FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |p  pzpp |
 | pf     |
 |        |
-|        |
-|  PZ   N|
-|PP P PPP|
-|FN QKB R|
+|   P    |
+|  PZ    |
+|P  P PPP|
+|FN QKBNR|
 +--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/22
+11/22
 ================================================================================
 Test Case 11
 Turn: b
@@ -2528,75 +1169,14 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 25 output boards
+  Found 32 output boards
   Found 31 solution boards
-  You generated 1 illegal boards.
-None  You missed 31 legal boards.
+  You generated 2 illegal boards.
 +--------+
 | ncqkbnr|
 |p  pzpp |
-|  f   p |
+|p f     |
 |        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-|  f p   |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|   pzpp |
-|ppf     |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzp  |
-| pf   p |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| n qkbnr|
-|p cpzpp |
-| pf     |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pf pzpp |
-| p      |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-|  f     |
-| p      |
 |   Z    |
 |  P     |
 |PP P PPP|
@@ -2606,212 +1186,13 @@ None  You missed 31 legal boards.
 | ncqkbnr|
 |p  pzpp |
 | p      |
-|  f     |
+|   Z    |
 |   Z    |
 |  P     |
 |PP P PPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ncqkb r|
-|p  pzpp |
-| pf  n  |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|p  pzpp |
-|npf     |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p  pzpp |
-| pf     |
-|        |
-|   Z    |
-|  P    r|
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
-|p  pzpp |
-| pf    n|
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p   zpp |
-| pf     |
-|        |
-|p  Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nc kbnr|
-|p qpzpp |
-| pf     |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p   zpp |
-| pfp    |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-|  f    p|
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p   zpp |
-| pf     |
-| p      |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p   zpp |
-| pf     |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-|  f  p  |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-|  fp    |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  p pp |
-| pf z   |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p  pzpp |
-| pf     |
-|        |
-|   Z    |
-|  P     |
-|PP P PPr|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| p f    |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p  pzpp |
-| pf    r|
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p  pzpp |
-| pf     |
-|       r|
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| p      |
-| f      |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pz p |
-| pf  p  |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
+  You missed 1 legal boards.
 +--------+
 | ncqkbnr|
 |p  pzpp |
@@ -2822,29 +1203,9 @@ None  You missed 31 legal boards.
 |PP P PPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ncqkbn |
-|p  pzppr|
-| pf     |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p  pzpp |
-| pf     |
-|        |
-|   Z   r|
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
   Deleting output boards
 --------------------------------------------------------------------------------
-0/31
+28/31
 ================================================================================
 Test Case 12
 Turn: w
@@ -2862,30 +1223,9 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 35 output boards
+  Found 40 output boards
   Found 29 solution boards
-  You generated 1 illegal boards.
-None  You missed 29 legal boards.
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|   Z    |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  P  Q  |
-|PP P PPP|
-|FN  KBNR|
-+--------+
+  You generated 10 illegal boards.
 +--------+
 | ncqkbnr|
 |p fpzpp |
@@ -2893,216 +1233,26 @@ None  You missed 29 legal boards.
 |        |
 |   Z    |
 |  P     |
-|PP PQPPP|
-|FN  KBNR|
+|PP P PPP|
+|F NQKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |p fpzpp |
 | p      |
-|        |
+|P       |
 |   Z    |
 |  P     |
-|PP PBPPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|    Z   |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  P   P |
-|PP P P P|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  PP    |
-|PP   PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z  Q |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-| B      |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  P     |
-|PP PNPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  PB    |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  P     |
-|PP PKPPP|
-|FN Q BNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|Q  Z    |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|N P     |
-|PP P PPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-|Bp      |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-| QP     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|P P     |
 | P P PPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  P  P  |
-|PP P  PP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
+| p   P  |
 |        |
 |   Z    |
 |  P     |
-|PPQP PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|        |
-|  PZ    |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-|  P     |
-|PP P PPP|
-|FNQ KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|  PZ    |
-|        |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|  BZ    |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|        |
-|   Z    |
-| PP     |
 |P  P PPP|
 |FN QKBNR|
 +--------+
@@ -3111,54 +1261,75 @@ None  You missed 29 legal boards.
 |p fpzpp |
 | p      |
 |        |
-|  Z     |
+|P  Z    |
 |  P     |
-|PP P PPP|
+| P P PPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |p fpzpp |
 | p      |
-|        |
-|   Z    |
-|  P    N|
-|PP P PPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzpp |
-| p      |
-|       Q|
+|    P   |
 |   Z    |
 |  P     |
-|PP P PPP|
-|FN  KBNR|
+|P  P PPP|
+|FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
+|  fpzpp |
+| p      |
+|        |
+|   Z    |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p fpzp  |
+| p      |
+|        |
+|   Z    |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+|Zncqkbnr|
 |p fpzpp |
 | p      |
 |        |
 |   Z    |
-|  P    P|
-|PP P PP |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbn |
+|p fpzpp |
+| p      |
+|        |
+|   Z    |
+|  P     |
+|P  P PPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |p fpzpp |
-| p      |
+|Pp      |
 |        |
 |   Z    |
-|  P  N  |
-|PP P PPP|
-|FN QKB R|
+|  P     |
+| P P PPP|
+|FN QKBNR|
 +--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/29
+19/29
 ================================================================================
 Test Case 13
 Turn: b
@@ -3176,25 +1347,24 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 20 output boards
+  Found 35 output boards
   Found 34 solution boards
-  You generated 1 illegal boards.
-None  You missed 34 legal boards.
+  You generated 9 illegal boards.
 +--------+
-| ncqkbnr|
-|  fpzpp |
-| p      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p f zpp |
+| n qkbnr|
+|p fpzpp |
 | Z      |
 |  Z     |
+|  Z     |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| n qkbnr|
+|p fpzpp |
+| ZZ     |
+|  Z     |
 |        |
 |  P     |
 |PP P PPP|
@@ -3202,8 +1372,8 @@ None  You missed 34 legal boards.
 +--------+
 +--------+
 | ncqkbnr|
-|p f zpp |
-| Z p    |
+|pZf zpp |
+| Z      |
 |  Z     |
 |        |
 |  P     |
@@ -3213,7 +1383,17 @@ None  You missed 34 legal boards.
 +--------+
 |  cqkbnr|
 |p fpzpp |
-| Z n    |
+|ZZ      |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+|  cqkbnr|
+|p fpzpp |
+| ZZ     |
 |  Z     |
 |        |
 |  P     |
@@ -3223,7 +1403,78 @@ None  You missed 34 legal boards.
 +--------+
 | ncqkbnr|
 |p  pzpp |
-| Z f    |
+| ZZ     |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|pZ pzpp |
+| Z      |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|p f zppp|
+| Z      |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  fpzpp |
+|ZZ      |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
+  You missed 8 legal boards.
++--------+
+| ncqkbnr|
+|p  pzpp |
+| Zf     |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|ppf zpp |
+| Z      |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|pf pzpp |
+| Z      |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+|  cqkbnr|
+|p fpzpp |
+|nZ      |
 |  Z     |
 |        |
 |  P     |
@@ -3233,68 +1484,8 @@ None  You missed 34 legal boards.
 +--------+
 | n qkbnr|
 |p fpzpp |
-| Z      |
+| Zc     |
 |  Z     |
-|        |
-|  P     |
-|PPcP PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p fpzpp |
-| Z     r|
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| n qkbnr|
-|p fpzpp |
-| Z      |
-|  c     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p fpzpp |
-| Z      |
-|  Z     |
-|       r|
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
-|p fpzpp |
-| Z   n  |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkb r|
-|p fpzpp |
-| Z     n|
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p fpzpp |
-| Z      |
-|  Z    r|
 |        |
 |  P     |
 |PP P PPP|
@@ -3315,57 +1506,7 @@ None  You missed 34 legal boards.
 |p fpzpp |
 | Z      |
 |  Z     |
-|        |
 |  c     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|p fpzpp |
-| Z      |
-|  Z     |
-|     n  |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fp pp |
-| Z  z   |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|ppf zpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P    r|
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpzp  |
-| Z    p |
-|  Z     |
-|        |
 |  P     |
 |PP P PPP|
 |FN QKBNR|
@@ -3380,149 +1521,9 @@ None  You missed 34 legal boards.
 |PP P PPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ncqkbn |
-|p fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPr|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|p fpzppr|
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p fpz p |
-| Z   p  |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nc kbnr|
-|p fpzpp |
-| q      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nc kbnr|
-|p fpzpp |
-| Z      |
-|q Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|p fpzpp |
-|nZ      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|p  pzpp |
-| Zf     |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| n qkbnr|
-|p fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FNcQKBNR|
-+--------+
-+--------+
-| n qkbnr|
-|p fpzpp |
-| Z      |
-|  Z     |
-|  c     |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|pf pzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| n qkbnr|
-|p fpzpp |
-| Zc     |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|p fpzpp |
-| Z      |
-|  Z n   |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|p fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPn|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|p fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P   n |
-|PP P PPP|
-|FN QKBNR|
-+--------+
   Deleting output boards
 --------------------------------------------------------------------------------
-0/34
+17/34
 ================================================================================
 Test Case 14
 Turn: w
@@ -3540,303 +1541,123 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 36 output boards
+  Found 41 output boards
   Found 29 solution boards
-  You generated 1 illegal boards.
-None  You missed 29 legal boards.
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|  P     |
-|        |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-| BZ     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|N P     |
-|PP P PPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  ZZzpp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP PQPPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|      Q |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|  B     |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P  P  |
-|PP P  PP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P   P |
-|PP P P P|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z    Q|
-|        |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|Q       |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PPQP PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P    P|
-|PP P PP |
-|FN QKBNR|
-+--------+
+  You generated 11 illegal boards.
 +--------+
 | ncqkbnr|
 |  fpzpp |
 | p      |
-|   Z    |
+|  Z P   |
 |        |
 |  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-| QP     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P  Q  |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| p      |
-|        |
-|  Z     |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-| Z      |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP PNPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP PBPPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P  N  |
-|PP P PPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP PKPPP|
-|FN Q BNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FNQ KBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-|BZ      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  PP    |
-|PP   PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|  P    N|
-|PP P PPP|
-|FN QKB R|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-|P P     |
-| P P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  fpzpp |
-| Z      |
-|  Z     |
-|        |
-| PP     |
 |P  P PPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ncqkbnr|
 |  fpzpp |
-| Z      |
+| p      |
+|  Z     |
+|P       |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  fpzp  |
+| p      |
 |  Z     |
 |        |
-|  PB    |
-|PP P PPP|
-|FN QK NR|
+|  P     |
+|P  P PPP|
+|FN QKBNR|
 +--------+
++--------+
+| ncqkbnr|
+|  fpzpp |
+| p      |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|F NQKBNR|
++--------+
++--------+
+| ncqkbnr|
+|P fpzpp |
+| p      |
+|  Z     |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  fpzpp |
+| p      |
+|P Z     |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  fpzpp |
+|Pp      |
+|  Z     |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  fpzpp |
+| p      |
+|  Z     |
+|   P    |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+|Zncqkbnr|
+|  fpzpp |
+| p      |
+|  Z     |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbn |
+|  fpzpp |
+| p      |
+|  Z     |
+|        |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  fpzpp |
+| p   P  |
+|  Z     |
+|        |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/29
+18/29
 ================================================================================
 Test Case 15
 Turn: b
@@ -3855,11 +1676,110 @@ Command a3 generated no output.
 And no error messages.
 Searching for boards:
   Found 19 output boards
-  Found 20 solution boards
-  You generated 1 illegal boards.
-None  You missed 20 legal boards.
+  Found 19 solution boards
+  You generated 19 illegal boards.
 +--------+
-| ncqkbn |
+| nZZkbn |
+|  ZZzpp |
+| ZZ     |
+|        |
+|        |
+|  P    r|
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbn |
+|  ZZzpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPr|
+|FN QKBNR|
++--------+
++--------+
+|  ZZkbnr|
+|  ZZzpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbnr|
+|  ZZz p |
+| ZZ  p  |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZq bnr|
+|  Zkzpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbn |
+|  ZZzpp |
+| ZZ     |
+|       r|
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+|  ZZkbnr|
+|  ZZzpp |
+|ZZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkb r|
+|  ZZzpp |
+| ZZ    n|
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZqkbnr|
+|  Z zpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbn |
+|  ZZzpp |
+| ZZ     |
+|        |
+|       r|
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbn |
 |  ZZzppr|
 | ZZ     |
 |        |
@@ -3869,8 +1789,99 @@ None  You missed 20 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
+| nZZkbnr|
+|  ZZ pp |
+| ZZ z   |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+|  Zqkbnr|
+|  ZZzpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkb r|
+|  ZZzpp |
+| ZZ  n  |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbn |
+|  ZZzpp |
+| ZZ    r|
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZ kbnr|
+|  ZZzpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nc kbnr|
+|  ZZzpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZqkbnr|
+|  Zz pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbnr|
+|  ZZzp  |
+| ZZ   p |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
+  You missed 19 legal boards.
++--------+
 | ncqkbnr|
-|  Z zpp |
+|  Zz pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nc kbnr|
+|  Zqzpp |
 | ZZ     |
 |        |
 |        |
@@ -3881,7 +1892,17 @@ None  You missed 20 legal boards.
 +--------+
 | ncqkbn |
 |  ZZzpp |
-| ZZ    r|
+| ZZ     |
+|        |
+|        |
+|  P    r|
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+|  cqkbnr|
+|  ZZzpp |
+| Zn     |
 |        |
 |        |
 |  P     |
@@ -3899,9 +1920,79 @@ None  You missed 20 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
+| ncqkbn |
+|  ZZzpp |
+| ZZ     |
+|       r|
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbn |
+|  ZZzpp |
+| ZZ    r|
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
 |  cqkbnr|
 |  ZZzpp |
 |nZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  Z zpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nc kbnr|
+|  qZzpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbnr|
+|  ZZzp  |
+| ZZ   p |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ncqkbn |
+|  ZZzpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPr|
+|FN QKBNR|
++--------+
++--------+
+|  cqkbnr|
+|  Znzpp |
+| ZZ     |
 |        |
 |        |
 |  P     |
@@ -3929,32 +2020,12 @@ None  You missed 20 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-| n qkbnr|
-|  cZzpp |
-| ZZ     |
+| ncqkb r|
+|  ZZzpp |
+| ZZ    n|
 |        |
 |        |
 |  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|  ZZzpp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPr|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|  ZZzpp |
-| ZZ     |
-|        |
-|        |
-|  P    r|
 |PP P PPP|
 |FN QKBNR|
 +--------+
@@ -3969,9 +2040,9 @@ None  You missed 20 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-| ncqkb r|
-|  ZZzpp |
-| ZZ    n|
+| ncqkbn |
+|  ZZzppr|
+| ZZ     |
 |        |
 |        |
 |  P     |
@@ -3988,79 +2059,9 @@ None  You missed 20 legal boards.
 |PP P PPP|
 |FN QKBNR|
 +--------+
-+--------+
-| nc kbnr|
-|  Zqzpp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|  Znzpp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  cqkbnr|
-|  ZZzpp |
-| Zn     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nc kbnr|
-|  qZzpp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbn |
-|  ZZzpp |
-| ZZ     |
-|       r|
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  ZZzp  |
-| ZZ   p |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ncqkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
   Deleting output boards
 --------------------------------------------------------------------------------
-0/20
+0/19
 ================================================================================
 Test Case 16
 Turn: w
@@ -4078,343 +2079,123 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 40 output boards
+  Found 45 output boards
   Found 33 solution boards
-  You generated 1 illegal boards.
-None  You missed 33 legal boards.
+  You generated 11 illegal boards.
 +--------+
-| ZZZkbnr|
+| nZqkbnr|
 |  Zz pp |
-| ZZ     |
+|PZZ     |
 |        |
 |        |
 |  P     |
-|PPQP PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-| ZZz pp |
-|  Z     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P  N  |
-|PP P PPP|
-|FN QKB R|
-+--------+
-+--------+
-| ZZZkbnr|
-|   z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-|Z Z     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP PKPPP|
-|FN Q BNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP PQPPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|Q       |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| Z Z    |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P    P|
-|PP P PP |
-|FN QKBNR|
-+--------+
-+--------+
-| ZZqkbnr|
-| Z z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-|BZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP PNPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P  P  |
-|PP P  PP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-| PP     |
-|P  P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P  Q  |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FNQ KBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-| QP     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P    N|
-|PP P PPP|
-|FN QKB R|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP PBPPP|
-|FN QK NR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  P   P |
-|PP P P P|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  PP    |
-|PP   PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|  PB    |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|N P     |
-|PP P PPP|
-|F  QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-|  Z     |
-| Z      |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
-|        |
-|        |
-|P P     |
 | P P PPP|
 |FN QKBNR|
 +--------+
 +--------+
-| ZZZkbnr|
+| nZqkbnr|
 |  Zz pp |
 | ZZ     |
-| B      |
 |        |
+|P       |
 |  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| nZZkbnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
+| P P PPP|
 |FN QKBNR|
 +--------+
 +--------+
-| ZZZkbnr|
+| nZqkbn |
 |  Zz pp |
 | ZZ     |
 |        |
-|      Q |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| Z      |
-|  Z     |
 |        |
 |  P     |
-|PP P PPP|
+|P  P PPP|
 |FN QKBNR|
 +--------+
 +--------+
-| ZZZkbnr|
-|  Zz pp |
+| nZqkbnr|
+|  Zz p  |
 | ZZ     |
 |        |
-|  B     |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ZZZkbnr|
-|  Zz pp |
-| ZZ     |
 |        |
 |  P     |
-|        |
-|PP P PPP|
+|P  P PPP|
 |FN QKBNR|
 +--------+
 +--------+
-| ZZZkbnr|
+| nZqkbnr|
 |  Zz pp |
 | ZZ     |
-|       Q|
+|        |
 |        |
 |  P     |
 |PP P PPP|
-|FN  KBNR|
+|F NQKBNR|
 +--------+
++--------+
+|ZnZqkbnr|
+|  Zz pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZqkbnr|
+|  Zz pp |
+| ZZ     |
+|    P   |
+|        |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZqkbnr|
+|  Zz pp |
+| ZZ     |
+|P       |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZqkbnr|
+|  Zz pp |
+| ZZ     |
+|        |
+|   P    |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZqkbnr|
+|P Zz pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZqkbnr|
+|  Zz pp |
+| ZZ  P  |
+|        |
+|        |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
+  You missed 0 legal boards.
   Deleting output boards
 --------------------------------------------------------------------------------
-0/33
+22/33
 ================================================================================
 Test Case 17
 Turn: b
@@ -4434,10 +2215,149 @@ And no error messages.
 Searching for boards:
   Found 22 output boards
   Found 22 solution boards
-  You generated 1 illegal boards.
-None  You missed 22 legal boards.
+  You generated 21 illegal boards.
 +--------+
-| nZZkbn |
+| ZZZkbnr|
+|   Z p  |
+| ZZ   p |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZk bnr|
+|   Z pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkbn |
+|   Z pp |
+| ZZ     |
+|        |
+|        |
+|  P    r|
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkb r|
+|   Z pp |
+| ZZ  n  |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZk nr|
+|   ZZpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkbn |
+|   Z pp |
+| ZZ     |
+|        |
+|       r|
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZk nr|
+|   Z pp |
+| ZZ     |
+|        |
+| b      |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZk nr|
+|   Z pp |
+| ZZZ    |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkbn |
+|   Z pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPr|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkbn |
+|   Z ppr|
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkbnr|
+|   Z  p |
+| ZZ  p  |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkbn |
+|   Z pp |
+| ZZ    r|
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+|  ZZkbnr|
+|   Z pp |
+|ZZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkb r|
+|   Z pp |
+| ZZ    n|
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkbn |
 |   Z pp |
 | ZZ     |
 |       r|
@@ -4447,17 +2367,37 @@ None  You missed 22 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-| nZZkbn |
+|  ZZkbnr|
 |   Z pp |
 | ZZ     |
 |        |
-|       r|
+|        |
 |  P     |
 |PP P PPP|
 |FN QKBNR|
 +--------+
 +--------+
-| nZZk nr|
+| ZZZ bnr|
+|   k pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZkb r|
+|   ZZpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZk nr|
 |   Z pp |
 | ZZ     |
 |        |
@@ -4467,11 +2407,112 @@ None  You missed 22 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
+| ZZZ bnr|
+|   Zkpp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZZk nr|
+|   Z pp |
+| ZZ     |
+|  Z     |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
+  You missed 22 legal boards.
++--------+
+| nZZkbn |
+|   Z pp |
+| ZZ    r|
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
 | nZZk nr|
 |   Z pp |
 | ZZ     |
+|  b     |
 |        |
-| b      |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbn |
+|   Z pp |
+| ZZ     |
+|        |
+|        |
+|  P    r|
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkb r|
+|   Z pp |
+| ZZ  n  |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZk bnr|
+|   Z pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbn |
+|   Z pp |
+| ZZ     |
+|        |
+|       r|
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbn |
+|   Z pp |
+| ZZ     |
+|       r|
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZk nr|
+|   Z pp |
+| ZZb    |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+|  ZZkbnr|
+|   Z pp |
+| Zn     |
+|        |
+|        |
 |  P     |
 |PP P PPP|
 |FN QKBNR|
@@ -4487,8 +2528,8 @@ None  You missed 22 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-| nZZ bnr|
-|   Zkpp |
+| nZZkbn |
+|   Z ppr|
 | ZZ     |
 |        |
 |        |
@@ -4507,16 +2548,6 @@ None  You missed 22 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-|  ZZkbnr|
-|   Z pp |
-| Zn     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
 | nZZkbn |
 |   Z pp |
 | ZZ     |
@@ -4527,78 +2558,8 @@ None  You missed 22 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-| nZZkbn |
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P    r|
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nZZkbnr|
-|   Z  p |
-| ZZ  p  |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nZZkbnr|
-|   Z p  |
-| ZZ   p |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-|  ZZkbnr|
-|   n pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
 | nZZk nr|
-|   Z pp |
-| ZZ     |
-|  b     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nZZkb r|
-|   Z pp |
-| ZZ  n  |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| nZZkbn |
-|   Z ppr|
+|   Zbpp |
 | ZZ     |
 |        |
 |        |
@@ -4617,11 +2578,41 @@ None  You missed 22 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-| nZZkbn |
+| nZZk nr|
 |   Z pp |
-| ZZ    r|
+| ZZ     |
 |        |
 |        |
+|b P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbnr|
+|   Z p  |
+| ZZ   p |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZkbnr|
+|   Z  p |
+| ZZ  p  |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
++--------+
+| nZZk nr|
+|   Z pp |
+| ZZ     |
+|        |
+| b      |
 |  P     |
 |PP P PPP|
 |FN QKBNR|
@@ -4637,9 +2628,9 @@ None  You missed 22 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-| nZZk nr|
-|   Z pp |
-| ZZb    |
+|  ZZkbnr|
+|   n pp |
+| ZZ     |
 |        |
 |        |
 |  P     |
@@ -4647,8 +2638,8 @@ None  You missed 22 legal boards.
 |FN QKBNR|
 +--------+
 +--------+
-| nZZk nr|
-|   Zbpp |
+| nZZ bnr|
+|   Zkpp |
 | ZZ     |
 |        |
 |        |
@@ -4676,44 +2667,124 @@ Running a3
 Command a3 generated no output.
 And no error messages.
 Searching for boards:
-  Found 43 output boards
+  Found 48 output boards
   Found 38 solution boards
-  You generated 1 illegal boards.
-None  You missed 38 legal boards.
+  You generated 11 illegal boards.
 +--------+
 | ZZk bnr|
 |   Z pp |
-| ZZ     |
-| B      |
+|PZZ     |
+|        |
 |        |
 |  P     |
-|PP P PPP|
-|FN QK NR|
+| P P PPP|
+|FN QKBNR|
 +--------+
 +--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P  Q  |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| n Z bnr|
+|ZZZk bnr|
 |   Z pp |
 | ZZ     |
 |        |
 |        |
 |  P     |
-|PP P PPP|
+| P P PPP|
 |FN QKBNR|
 +--------+
 +--------+
 | ZZk bnr|
-|     pp |
-| ZZZ    |
+|P  Z pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZk bnr|
+|   Z pp |
+| ZZ     |
+|        |
+|P       |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZk bnr|
+|   Z pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|F NQKBNR|
++--------+
++--------+
+| ZZk bnr|
+|   Z p  |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZk bnr|
+|   Z pp |
+| ZZ  P  |
+|        |
+|        |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZk bnr|
+|   Z pp |
+| ZZ     |
+|P       |
+|        |
+|  P     |
+| P P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZk bnr|
+|   Z pp |
+| ZZ     |
+|        |
+|   P    |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZk bnr|
+|   Z pp |
+| ZZ     |
+|    P   |
+|        |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
++--------+
+| ZZk bn |
+|   Z pp |
+| ZZ     |
+|        |
+|        |
+|  P     |
+|P  P PPP|
+|FN QKBNR|
++--------+
+  You missed 2 legal boards.
++--------+
+| n Z bnr|
+|   Z pp |
+| ZZ     |
 |        |
 |        |
 |  P     |
@@ -4730,339 +2801,9 @@ None  You missed 38 legal boards.
 |PP P PPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  PP    |
-|PP   PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-|  Z     |
-| Z      |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-| PP     |
-|P  P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P  N  |
-|PP P PPP|
-|FN QKB R|
-+--------+
-+--------+
-| Z k bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  PB    |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-|BZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ZZk bnr|
-|  ZZ pp |
-| Z      |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP PBPPP|
-|FN QK NR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P   P |
-|PP P P P|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|      Q |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| Z      |
-|  Z     |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| Z Z    |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P    N|
-|PP P PPP|
-|FN QKB R|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP PNPPP|
-|FN QKB R|
-+--------+
-+--------+
-| ZZk Znr|
-|    ZZp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PPQP PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|N P     |
-|PP P PPP|
-|F  QKBNR|
-+--------+
-+--------+
-| Z k bnr|
-|  ZZ pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP PKPPP|
-|FN Q BNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP PQPPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|  P     |
-|        |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|Q       |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|  B     |
-|  P     |
-|PP P PPP|
-|FN QK NR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-|Z Z     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|  Z  pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P    P|
-|PP P PP |
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|       Q|
-|        |
-|  P     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZk bnr|
-| Z Z pp |
-|  Z     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FNQ KBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-| QP     |
-|PP P PPP|
-|FN  KBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|P P     |
-| P P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZk bnr|
-|   Z pp |
-| ZZ     |
-|        |
-|        |
-|  P  P  |
-|PP P  PP|
-|FN QKBNR|
-+--------+
   Deleting output boards
 --------------------------------------------------------------------------------
-0/38
+25/38
 ================================================================================
 Test Case 19
 Turn: b
@@ -5082,82 +2823,32 @@ And no error messages.
 Searching for boards:
   Found 16 output boards
   Found 16 solution boards
-  You generated 1 illegal boards.
-None  You missed 16 legal boards.
+  You generated 2 illegal boards.
++--------+
+| ZZZ  nr|
+|     pp |
+| ZZZ    |
+|        |
+|        |
+|  P     |
+|PP P PPP|
+|FN QKBNR|
++--------+
 +--------+
 | ZZZ  nr|
 |     pp |
 | ZZ     |
-|        |
-| b      |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ bn |
-|     ppr|
-| ZZ     |
-|        |
+|  Z     |
 |        |
 |  P     |
 |PP P PPP|
 |FN QKBNR|
 +--------+
+  You missed 2 legal boards.
 +--------+
-| ZZZ bn |
+| ZZZ  nr|
 |     pp |
-| ZZ    r|
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ bn |
-|     pp |
-| ZZ     |
-|        |
-|        |
-|  P    r|
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ b r|
-|     pp |
-| ZZ  n  |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ bn |
-|     pp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPr|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ b r|
-|    npp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ bnr|
-|     p  |
-| ZZ   p |
+| ZZb    |
 |        |
 |        |
 |  P     |
@@ -5174,78 +2865,8 @@ None  You missed 16 legal boards.
 |PP P PPP|
 |FN QKBNR|
 +--------+
-+--------+
-| ZZZ  nr|
-|     pp |
-| ZZ     |
-|        |
-|        |
-|b P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ bn |
-|     pp |
-| ZZ     |
-|       r|
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ bnr|
-|      p |
-| ZZ  p  |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ  nr|
-|     pp |
-| ZZb    |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ b r|
-|     pp |
-| ZZ    n|
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ bn |
-|     pp |
-| ZZ     |
-|        |
-|       r|
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
-+--------+
-| ZZZ  nr|
-|    bpp |
-| ZZ     |
-|        |
-|        |
-|  P     |
-|PP P PPP|
-|FN QKBNR|
-+--------+
   Deleting output boards
 --------------------------------------------------------------------------------
-0/16
+12/16
 ********************************************************************************
-Grand total:  0/476
+Grand total:  277/475
