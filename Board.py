@@ -69,4 +69,25 @@ class Board:
             self.grid[7 - rank][file] = str(piece)
 
     def __repr__(self) -> str:
-        return "\n".join("  ".join(row) for row in self.grid)
+        lines = ["+--------+"]  # 16 dashes for 8 columns × 2 chars
+        for row_index in range(0, 8):
+            row_chars = []
+            for cell in self.grid[row_index]:
+                if cell == '.':
+                    # Empty square => ".."
+                    row_chars.append(" ")
+                else:
+                    # cell is something like "wK" or "bQ"
+                    color = cell[0]  # 'w' or 'b'
+                    piece_char = cell[1]  # 'K', 'Q', etc.
+                    if color == 'w':
+                        # Make sure it's uppercase
+                        row_chars.append(piece_char.upper())
+                    else:
+                        # Make sure it's lowercase
+                        row_chars.append(piece_char.lower())
+            row_str = "".join(row_chars)
+            lines.append(f"|{row_str}|")
+        lines.append("+--------+")
+        return "\n".join(lines)
+

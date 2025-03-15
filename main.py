@@ -17,12 +17,12 @@ def main():
     # Generate all legal successor boards.
     successors = MoveGenerator.generate_successor_boards(current_board)
 
-    # # For debugging
-    # for idx, board in enumerate(successors):
-    #     print(f"=== Successor {idx} ===")
-    #     print(f"Move: {board.last_move}")
-    #     print(board)
-    #     print("\n")
+    # For debugging
+    for idx, board in enumerate(successors):
+        print(f"=== Successor {idx} ===")
+        print(f"Move: {board.last_move}")
+        print(board)
+        print("\n")
 
     for idx, board in enumerate(successors):
         filename = f"board.{idx:03d}"
