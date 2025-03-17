@@ -1,6 +1,6 @@
 import numpy as np
-
-from pieces import Flinger, Peon, Cannon, King, Zombie
+from pieces import Flinger, Peon, Cannon, King, Zombie, Knight
+from collections import defaultdict
 from Board import Board
 
 # Aggressive Piece-Square Tables (8x8) for each piece type
@@ -81,7 +81,7 @@ P_PST = np.array([
 Z_PST = np.array([
     [ 0.50,  0.80,  1.00,  1.20,  1.20,  1.00,  0.80,  0.50],
     [ 0.50,  0.80,  1.00,  1.20,  1.20,  1.00,  0.80,  0.50],
-    [ 0.30,  0.60,  0.80,  1.00,  1.00,  0.80,  0.60,  0.30],
+    [ 0.30,  0.60,  0.80,  1.00,  1.00,  1.00,  0.80,  0.50],
     [ 0.10,  0.40,  0.60,  0.80,  0.80,  0.60,  0.40,  0.10],
     [-0.10,  0.20,  0.40,  0.60,  1.20,  0.40,  0.20, -0.10],
     [-0.30,  0.00,  0.20,  0.40,  0.40,  0.20,  0.00, -0.30],
@@ -113,170 +113,164 @@ C_PST = np.array([
     [-0.30, -0.10,  0.10,  0.20,  0.20,  0.10, -0.10, -0.30]
 ], dtype=float)
 
+PIECE_VALUES = {
+    'K': 10000,  # Extreme value for king
+    'Q': 9.5, 'R': 5, 'B': 3.25, 'N': 3,
+    'P': 1, 'F': 4, 'C': 11, 'Z': 7
+}
+
+PST = {
+    'K': K_PST, 'Q': Q_PST, 'R': R_PST, 'B': B_PST,
+    'N': N_PST, 'P': P_PST, 'F': F_PST, 'C': C_PST, 'Z': Z_PST
+}
+
 
 class AI:
     def __init__(self, depth=4, ai_color='w'):
         self.depth = depth
-        self.ai_color = ai_color  # 'w' or 'b'
+        self.ai_color = ai_color
+        self.opponent_color = 'b' if ai_color == 'w' else 'w'
 
-    @staticmethod
-    def evaluate(board: Board) -> int:
-        PIECE_VALUES = {
-            'K': 20, 'Q': 9, 'R': 5, 'B': 3, 'N': 3,
-            'P': 1, 'F': 4, 'C': 11
-        }
 
-        PST = {
-            'K': K_PST, 'Q': Q_PST, 'R': R_PST, 'B': B_PST, 'N': N_PST,
-            'P': P_PST, 'F': F_PST, 'C': C_PST
-        }
-        score = 0
-        king_positions = {'w': None, 'b': None}  # Store king locations for both sides
+    def evaluate(self, board: Board) -> int:
+        ai_score = opp_score = 0
+        kings = {'w': None, 'b': None}
 
-        for piece in board.pieces.values():
-            # Use "N" for Knight; for all others, use first letter of class name.
-            piece_type = "N" if piece.__class__.__name__ == "Knight" else piece.__class__.__name__[0]
-            piece_value = PIECE_VALUES.get(piece_type, 0)
-            file = ord(piece.position[0]) - ord('a')
-            rank = int(piece.position[1]) - 1
+        # Material and positional scoring
+        for pos, piece in board.pieces.items():
+            piece_type = "N" if isinstance(piece, Knight) else piece.__class__.__name__[0]
+            value = PIECE_VALUES[piece_type]
+            file = ord(pos[0]) - ord('a')
+            rank = int(pos[1]) - 1
+            pst = PST[piece_type][7 - rank][file] if piece.color == 'b' else PST[piece_type][rank][file]
 
-            if piece_type == "K":
-                king_positions[piece.color] = (file, rank)  # Save King's location
+            if piece.color == self.ai_color:
+                ai_score += value + pst
+            else:
+                opp_score += value + pst
 
-            # Access PST (mirror for Black)
-            pst_bonus = PST[piece_type][7 - rank][file] if piece.color == 'b' else PST[piece_type][rank][file]
+            if piece_type == 'K':
+                kings[piece.color] = pos  # Store position string
 
-            # Add piece value and PST bonus; subtract for opponent's pieces.
-            score += (piece_value + pst_bonus) if piece.color == board.turn else -1 * (piece_value + pst_bonus)
-
-        # Check for missing kings: if the king for the current side is missing, that's a loss.
-        if king_positions[board.turn] is None:
+        # Terminal states
+        if not kings.get(self.ai_color):
             return -100000
-
-        # If the opponent's king is missing, that's a win.
-        opponent = 'b' if board.turn == 'w' else 'w'
-        if king_positions[opponent] is None:
+        if not kings.get(self.opponent_color):
             return 100000
 
-        # Only evaluate king safety for the AI's turn if the king is found.
-        score += AI.evaluate_king_safety(board, king_positions[board.turn], board.turn)
-        score += AI.evaluate_mobility(board)
-        score += AI.evaluate_pawn_structure(board)
+        # Color-specific evaluations
+        ai_score += self.evaluate_king_safety(board, kings[self.ai_color], self.ai_color)
+        ai_score += self.evaluate_mobility(board, self.ai_color)
+        ai_score += self.evaluate_pawn_structure(board, self.ai_color)
+
+        opp_score += self.evaluate_king_safety(board, kings[self.opponent_color], self.opponent_color)
+        opp_score += self.evaluate_mobility(board, self.opponent_color)
+        opp_score += self.evaluate_pawn_structure(board, self.opponent_color)
+
+        return ai_score - opp_score
+
+    def evaluate_king_safety(self, board, king_pos, color):
+        if not king_pos:
+            return 0
+
+        k_file = ord(king_pos[0]) - ord('a')
+        k_rank = int(king_pos[1]) - 1
+        score = 0
+        pawn_shield = 0
+        enemy_threats = 0
+
+        # Adjacent squares calculation
+        for dx, dy in [(-1, -1), (-1, 0), (-1, 1), (0, -1), (0, 1), (1, -1), (1, 0), (1, 1)]:
+            af = k_file + dx
+            ar = k_rank + dy
+            if 0 <= af < 8 and 0 <= ar < 8:
+                pos = f"{chr(af + ord('a'))}{ar + 1}"
+                if pos in board.pieces and board.pieces[pos].color == color:
+                    pawn_shield += 1
+
+        # Pawn shield penalty
+        if pawn_shield < 2:
+            score -= (2 - pawn_shield) * 5
+
+        # Enemy threats with piece value weighting
+        enemy_color = 'b' if color == 'w' else 'w'
+        for piece in board.pieces.values():
+            if piece.color == enemy_color:
+                if king_pos in piece.get_valid_moves(board):
+                    enemy_threats += PIECE_VALUES.get(piece.__class__.__name__[0], 1)
+                if isinstance(piece, Cannon):
+                    for _, targets in piece.get_cannonball_moves(board):
+                        if king_pos in targets:
+                            enemy_threats += PIECE_VALUES['C']
+
+        score -= enemy_threats * 2  # Reduced multiplier for better balance
+
+        # Open file check
+        king_file = king_pos[0]
+        if not any(p.position[0] == king_file for p in board.pieces.values()
+                   if isinstance(p, Peon) and p.color == color):
+            score -= 5
 
         return score
 
-    @staticmethod
-    def evaluate_king_safety(board, king_pos, color):
-        if king_pos is None:
-            return 0  # No King found (shouldn't happen in a valid game)
-
-        k_file, k_rank = king_pos
-        king_square = f"{chr(k_file + ord('a'))}{k_rank + 1}"
-        enemy_color = 'b' if color == 'w' else 'w'
-        king_safety_score = 0
-        pawn_protection = 0
-        enemy_threats = 0
-
-        adjacent_deltas = [(-1, -1), (-1, 0), (-1, 1),
-                           (0, -1),           (0, 1),
-                           (1, -1),  (1, 0),  (1, 1)]
-
-        # 1: Friendly Piece Protection (check all adjacent squares)
-        for dx, dy in adjacent_deltas:
-            adj_file = k_file + dx
-            adj_rank = k_rank + dy
-            if 0 <= adj_file < 8 and 0 <= adj_rank < 8:
-                adj_pos = f"{chr(adj_file + ord('a'))}{adj_rank + 1}"
-                if adj_pos in board.pieces:
-                    piece = board.pieces[adj_pos]
-                    if piece.color == color:
-                        pawn_protection += 1
-
-        if pawn_protection < 2:
-            king_safety_score -= (2 - pawn_protection) * 5
-
-        # 2: Check for Enemy Attacks
-        for enemy_pos, enemy_piece in board.pieces.items():
-            if enemy_piece.color == enemy_color:
-                enemy_moves = enemy_piece.get_valid_moves(board)
-                for move in enemy_moves:
-                    if move == king_square:
-                        enemy_threats += 3  # Direct attack penalty
-
-                if isinstance(enemy_piece, Cannon):
-                    cannonball_moves = enemy_piece.get_cannonball_moves(board)
-                    for _, hit_pieces in cannonball_moves:
-                        if king_square in hit_pieces:
-                            enemy_threats += 5  # Higher penalty for a Cannon threat
-
-        king_safety_score -= enemy_threats * 10
-
-        # 3: Open File Penalty – if no friendly pawn is on the King's file.
-        friendly_pawns = [p for p in board.pieces.values() if p.color == color and p.position[0] == f"{chr(k_file + ord('a'))}"]
-        if not friendly_pawns:
-            king_safety_score -= 8
-
-        return king_safety_score
-
-    @staticmethod
-    def evaluate_mobility(board):
-        mobility_score = 0
+    def evaluate_mobility(self, board, color):
+        """Calculate mobility for specified color"""
+        mobility = 0
         for piece in board.pieces.values():
-            if isinstance(piece, King):
-                continue
-            legal_moves = piece.get_valid_moves(board)
-            move_count = len(legal_moves)
-            mobility_score += move_count * 0.5
-            if move_count < 2:
-                mobility_score -= 2
-        return mobility_score
+            if piece.color == color and not isinstance(piece, King):
+                moves = piece.get_valid_moves(board)
+                mobility += len(moves) * 0.3
+        return mobility
 
-    @staticmethod
-    def evaluate_pawn_structure(board):
-        pawn_structure_score = 0
-        pawn_positions = {'w': {}, 'b': {}}
+    def evaluate_pawn_structure(self, board, color):
+        """Evaluate pawn structure for specified color"""
+        score = 0
+        pawns = defaultdict(list)
+        enemy_pawns = defaultdict(list)
 
-        for piece in board.pieces.values():
+        for pos, piece in board.pieces.items():
             if isinstance(piece, Peon):
-                file = piece.position[0]
-                rank = int(piece.position[1])
-                pawn_positions[piece.color].setdefault(file, []).append(rank)
-
-        for color, pawns in pawn_positions.items():
-            for file, ranks in pawns.items():
-                ranks.sort()
-                if len(ranks) > 1:
-                    pawn_structure_score -= (len(ranks) - 1) * 2
-                left_file = chr(ord(file) - 1) if file > 'a' else None
-                right_file = chr(ord(file) + 1) if file < 'h' else None
-                has_neighbor = ((left_file in pawns) or (right_file in pawn_positions[color]))
-                if not has_neighbor:
-                    pawn_structure_score -= 3
-                if color == 'w':
-                    enemy_pawns = pawn_positions['b']
-                    blocked = any(
-                        f in enemy_pawns and any(r > min(ranks) for r in enemy_pawns[f])
-                        for f in [file, left_file, right_file] if f
-                    )
+                if piece.color == color:
+                    pawns[pos[0]].append(int(pos[1]))
                 else:
-                    enemy_pawns = pawn_positions['w']
-                    blocked = any(
-                        f in enemy_pawns and any(r < max(ranks) for r in enemy_pawns[f])
-                        for f in [file, left_file, right_file] if f
-                    )
-                if not blocked:
-                    pawn_structure_score += 6
-                if file in ['d', 'e'] and (color == 'w' and max(ranks) >= 4 or color == 'b' and min(ranks) <= 5):
-                    pawn_structure_score += 4
-        return pawn_structure_score
+                    enemy_pawns[pos[0]].append(int(pos[1]))
 
-    def alpha_beta_minimax(self, board, depth, alpha, beta, maximizing_player):
+        for file, ranks in pawns.items():
+            ranks.sort()
+            # Doubled pawns
+            if len(ranks) > 1:
+                score -= (len(ranks) - 1) * 2
+
+            # Isolation check
+            left = chr(ord(file) - 1)
+            right = chr(ord(file) + 1)
+            isolated = not (pawns.get(left) or pawns.get(right))
+            if isolated:
+                score -= 3
+
+            # Passed pawn detection
+            front_rank = max(ranks) if color == 'w' else min(ranks)
+            blocked = False
+            for f in [file, left, right]:
+                if f in enemy_pawns:
+                    if color == 'w':
+                        if any(r >= front_rank for r in enemy_pawns[f]):
+                            blocked = True
+                    else:
+                        if any(r <= front_rank for r in enemy_pawns[f]):
+                            blocked = True
+            if not blocked:
+                score += 4 + abs(front_rank - (4 if color == 'w' else 5))
+
+        return score
+
+    def alpha_beta_minimax(self, board, depth, alpha, beta, maximizing):
         if depth == 0 or board.is_checkmate():
             return self.evaluate(board)
 
-        if maximizing_player:
+        if maximizing:
             max_eval = -float('inf')
-            for move in self.order_moves(board.generate_successors()):
+            for move in board.generate_successors():
                 eval_score = self.alpha_beta_minimax(move, depth - 1, alpha, beta, False)
                 max_eval = max(max_eval, eval_score)
                 alpha = max(alpha, eval_score)
@@ -285,7 +279,7 @@ class AI:
             return max_eval
         else:
             min_eval = float('inf')
-            for move in self.order_moves(board.generate_successors()):
+            for move in board.generate_successors():
                 eval_score = self.alpha_beta_minimax(move, depth - 1, alpha, beta, True)
                 min_eval = min(min_eval, eval_score)
                 beta = min(beta, eval_score)
@@ -294,75 +288,62 @@ class AI:
             return min_eval
 
     def choose_best_move(self, board):
+        """
+        First, check if an opening move is still available by verifying whether
+        the piece is still on its initial square. If so, iterate through the generated
+        successors to find the board state that reflects the opening move.
+        Otherwise, fall back to alpha-beta search.
+        """
+        # For White (Ruy López opening: 1. e4, 2. Nf3, 3. Bb5)
+        if self.ai_color == 'w':
+            # Move 1: e2 -> e3 (Zombie)
+            if 'e2' in board.pieces and isinstance(board.pieces['e2'], Zombie):
+                for new_board in board.generate_successors():
+                    # Assuming new_board.last_move is set as "Piece moved from e2 to e4"
+                    if hasattr(new_board, "last_move") and "e2 to e4" in new_board.last_move:
+                        return new_board
+            # Move 2: g1 -> f3 (Knight)
+            elif 'g1' in board.pieces and isinstance(board.pieces['g1'], Knight):
+                for new_board in board.generate_successors():
+                    if hasattr(new_board, "last_move") and "g1 to f3" in new_board.last_move:
+                        return new_board
+            # Move 3: f1 -> b5 (Bishop)
+            elif 'f1' in board.pieces and board.pieces['f1'].__class__.__name__[0] == 'B':
+                for new_board in board.generate_successors():
+                    if hasattr(new_board, "last_move") and "f1 to b5" in new_board.last_move:
+                        return new_board
+
+        # For Black (Queen's Indian Defense: 1. ... Nf6, 2. ... e6, 3. ... b6)
+        else:
+            # Move 1: g8 -> f6 (Knight)
+            if 'g8' in board.pieces and isinstance(board.pieces['g8'], Knight):
+                for new_board in board.generate_successors():
+                    if hasattr(new_board, "last_move") and "g8 to f6" in new_board.last_move:
+                        return new_board
+            # Move 2: c7 -> e6 (Peon)
+            elif 'c7' in board.pieces and isinstance(board.pieces['c7'], Peon):
+                for new_board in board.generate_successors():
+                    if hasattr(new_board, "last_move") and "c7 to e6" in new_board.last_move:
+                        return new_board
+            # Move 3: b7 -> b6 (Peon)
+            elif 'b7' in board.pieces and isinstance(board.pieces['b7'], Peon):
+                for new_board in board.generate_successors():
+                    if hasattr(new_board, "last_move") and "b7 to b6" in new_board.last_move:
+                        return new_board
+
+        # If none of the opening moves are applicable, fall back to alpha-beta search.
         best_move = None
         best_score = -float('inf')
         alpha = -float('inf')
         beta = float('inf')
-
-        # Determine if we're maximizing based on AI color
         is_maximizing = (board.turn == self.ai_color)
-
-        for move in self.order_moves(board.generate_successors()):
-            current_score = self.alpha_beta_minimax(
-                move,
-                depth=self.depth - 1,  # Use full depth
-                alpha=alpha,
-                beta=beta,
-                maximizing_player=not is_maximizing  # Switch sides after root move
-            )
-
-            if current_score > best_score:
-                best_score = current_score
+        for move in board.generate_successors():
+            score = self.alpha_beta_minimax(move, depth=self.depth - 1, alpha=alpha, beta=beta,
+                                            maximizing=not is_maximizing)
+            if score > best_score:
+                best_score = score
                 best_move = move
                 alpha = max(alpha, best_score)
-
             if beta <= alpha:
                 break
-
         return best_move
-
-    def order_moves(self, moves):
-        # Basic move ordering - sort moves based on move priority.
-        return sorted(moves, key=lambda m: self.move_priority(m), reverse=True)
-
-    def move_priority(self, move):
-        """
-        Calculate a priority score for a move.
-        The higher the score, the sooner the move will be examined.
-        Priorities are based on:
-          1. Captures (MVV-LVA): capturing high-value pieces with low-value pieces.
-          2. Checks: moves that put the enemy king in check.
-          3. Promotions: moves that promote a pawn.
-          4. Threats: moves that threaten high-value enemy pieces.
-          5. Defensive moves: moves that protect the king or prevent mate.
-          6. Positional improvements: improvements according to piece-square tables.
-          7. Quiet moves: least priority.
-        """
-        score = 0
-        # If the move has a last_move attribute, we use its text to decide priorities.
-        if hasattr(move, "last_move") and move.last_move:
-            text = move.last_move.lower()
-            # Promotion moves: highest priority.
-            if "promote" in text:
-                score += 9000
-            # Captures: look for keywords (assume 'capture' appears in the description).
-            if "capture" in text:
-                score += 1000
-            # Cannon firing moves (usually capture multiple pieces)
-            if "fires" in text:
-                score += 1200
-            # Flinger sling moves that may capture pieces.
-            if "sling" in text:
-                score += 800
-            # Moves that give check.
-            if "check" in text:
-                score += 500
-            # Threats to high-value pieces (if the description mentions attacking a queen, rook, etc.)
-            if "queen" in text:
-                score += 300
-            if "rook" in text:
-                score += 200
-            # Defensive moves: if the move description indicates blocking or defending.
-            if "defend" in text or "block" in text:
-                score += 400
-        return score
