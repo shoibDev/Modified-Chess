@@ -9,7 +9,7 @@ class Board:
         self.grid = [['.' for _ in range(8)] for _ in range(8)]
         self.pieces: dict[str, Piece] = {}  # Maps positions ('e4') to Piece objects
         self.turn = None 
-
+        self.last_move = None
 
     def add_piece(self, piece: Piece) -> None:
         self.pieces[piece.position] = piece
