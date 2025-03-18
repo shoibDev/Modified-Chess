@@ -20,7 +20,7 @@ def parse_board() -> tuple[str, list[Piece]]:
     lines = sys.stdin.readlines()
 
     # Read the first line to get turn info (e.g., "w 0 60000 0")
-    turn, _, _, _ = lines[0].split()
+    turn, used_time, total_time, move_number = lines[0].split()
 
     piece_list: list[Piece] = []
     inside_braces: bool = False
@@ -44,7 +44,7 @@ def parse_board() -> tuple[str, list[Piece]]:
                 piece = PIECE_MAP[piece_type](color, position)
                 piece_list.append(piece)
 
-    return turn, piece_list
+    return turn, used_time, total_time, move_number, piece_list
 
 def save_successor_boards(successors, turn):
     """

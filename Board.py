@@ -10,6 +10,7 @@ class Board:
         self.pieces: dict[str, Piece] = {}  # Maps positions ('e4') to Piece objects
         self.turn = None 
         self.last_move = None
+        self.captured = []
 
     def add_piece(self, piece: Piece) -> None:
         self.pieces[piece.position] = piece
@@ -58,7 +59,6 @@ class Board:
 
     def generate_successors(self) -> list:
         return MoveGenerator.generate_successor_boards(self)
-
 
     def refresh_grid(self):
         """Rebuild the grid from the current board.pieces dictionary. DEBUGGIUNG PURSPOSE ONLY!"""

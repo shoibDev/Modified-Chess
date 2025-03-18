@@ -18,7 +18,10 @@ class Zombie(Piece):
 
                 if move_pos not in board.pieces:
                     valid_moves.append(move_pos)  # Move to empty square
-                elif board.pieces[move_pos].color != self.color and not isinstance(board.pieces[move_pos], King):
-                    valid_moves.append(move_pos)  # Capture enemy piece (except King)
+                elif board.pieces[move_pos].color != self.color:
+                    if isinstance(board.pieces[move_pos], King):
+                        valid_moves.append(move_pos)
+                    else:
+                        valid_moves.append(move_pos)
 
         return valid_moves
