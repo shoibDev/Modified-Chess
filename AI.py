@@ -2,10 +2,8 @@ import numpy as np
 from pieces import Flinger, Peon, Cannon, King, Zombie, Knight
 from collections import defaultdict
 from Board import Board
+import time
 
-# Enhanced Aggressive Piece-Square Tables (8x8) for each piece type
-
-# King PST – Encourage staying near corners and discourage central exposure
 K_PST = np.array([
     [-2.00, -1.70, -1.80, -2.30, -2.30, -1.80, -1.70, -2.00],
     [-1.60, -1.30, -1.40, -1.90, -1.90, -1.40, -1.30, -1.60],
@@ -17,7 +15,7 @@ K_PST = np.array([
     [0.30, 0.60, 0.50, 0.00, 0.00, 0.50, 0.60, 0.30]
 ], dtype=float)
 
-# Queen PST – Favor central board control and forward placement
+
 Q_PST = np.array([
     [0.00, 0.10, 0.20, 0.30, 0.30, 0.20, 0.10, 0.00],
     [0.10, 0.20, 0.30, 0.40, 0.40, 0.30, 0.20, 0.10],
@@ -29,7 +27,6 @@ Q_PST = np.array([
     [-0.40, -0.30, -0.20, -0.10, -0.10, -0.20, -0.30, -0.40]
 ], dtype=float)
 
-# Rook PST – Encourage rooks to move off the back rank and onto open files/7th rank
 R_PST = np.array([
     [0.15, 0.20, 0.25, 0.30, 0.30, 0.25, 0.20, 0.15],
     [0.20, 0.25, 0.30, 0.35, 0.35, 0.30, 0.25, 0.20],
@@ -41,7 +38,7 @@ R_PST = np.array([
     [-0.20, -0.15, -0.10, -0.05, -0.05, -0.10, -0.15, -0.20]
 ], dtype=float)
 
-# Bishop PST – Favor long diagonals and central positioning
+
 B_PST = np.array([
     [-0.10, -0.05, 0.00, 0.05, 0.05, 0.00, -0.05, -0.10],
     [0.00, 0.05, 0.10, 0.15, 0.15, 0.10, 0.05, 0.00],
@@ -53,7 +50,7 @@ B_PST = np.array([
     [-0.30, -0.25, -0.20, -0.15, -0.15, -0.20, -0.25, -0.30]
 ], dtype=float)
 
-# Knight PST – Strongly favor central and advanced outpost squares; penalize edges and corners
+
 N_PST = np.array([
     [-0.90, -0.70, -0.40, -0.30, -0.30, -0.40, -0.70, -0.90],
     [-0.50, -0.30, 0.00, 0.10, 0.10, 0.00, -0.30, -0.50],
@@ -65,21 +62,21 @@ N_PST = np.array([
     [-0.90, -0.70, -0.40, -0.30, -0.30, -0.40, -0.70, -0.90]
 ], dtype=float)
 
-# Enhanced Peon (Pawn) PST – Significantly higher values to encourage pawn movement
+
 P_PST = np.array([
-    [2.00, 2.10, 2.20, 2.30, 2.30, 2.20, 2.10, 2.00],  # Promotion rank (highest value)
+    [2.00, 2.10, 2.20, 2.30, 2.30, 2.20, 2.10, 2.00],
     [1.60, 1.70, 1.80, 1.90, 1.90, 1.80, 1.70, 1.60],
     [1.20, 1.30, 1.40, 1.50, 1.50, 1.40, 1.30, 1.20],
     [0.80, 0.90, 1.00, 1.10, 1.10, 1.00, 0.90, 0.80],
     [0.50, 0.60, 0.70, 0.80, 0.80, 0.70, 0.60, 0.50],
     [0.30, 0.40, 0.50, 0.60, 0.60, 0.50, 0.40, 0.30],
     [0.10, 0.20, 0.30, 0.40, 0.40, 0.30, 0.20, 0.10],
-    [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]  # Starting rank (lowest value)
+    [0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00, 0.00]
 ], dtype=float)
 
-# Enhanced Zombie PST – Much higher values to make zombies stronger and more central-aggressive
+
 Z_PST = np.array([
-    [1.80, 2.00, 2.20, 2.40, 2.40, 2.20, 2.00, 1.80],  # Highest value on opponent's side
+    [1.80, 2.00, 2.20, 2.40, 2.40, 2.20, 2.00, 1.80],
     [1.50, 1.70, 1.90, 2.10, 2.10, 1.90, 1.70, 1.50],
     [1.20, 1.40, 1.60, 1.80, 1.80, 1.60, 1.40, 1.20],
     [0.90, 1.10, 1.30, 1.50, 1.50, 1.30, 1.10, 0.90],
@@ -89,7 +86,7 @@ Z_PST = np.array([
     [0.00, 0.20, 0.40, 0.60, 0.60, 0.40, 0.20, 0.00]
 ], dtype=float)
 
-# Flinger PST – Treat as a long-range piece; favor central files and advancing toward the 7th rank
+
 F_PST = np.array([
     [0.30, 0.40, 0.50, 0.60, 0.60, 0.50, 0.40, 0.30],
     [0.40, 0.50, 0.60, 0.70, 0.70, 0.60, 0.50, 0.40],
@@ -101,7 +98,7 @@ F_PST = np.array([
     [-0.15, -0.05, 0.05, 0.15, 0.15, 0.05, -0.05, -0.15]
 ], dtype=float)
 
-# Cannon PST – Modeled after a Xiangqi cannon; favor mid-ranks and central files
+
 C_PST = np.array([
     [-0.50, -0.30, -0.10, 0.00, 0.00, -0.10, -0.30, -0.50],
     [-0.40, -0.20, 0.00, 0.10, 0.10, 0.00, -0.20, -0.40],
@@ -113,17 +110,16 @@ C_PST = np.array([
     [-0.30, -0.10, 0.10, 0.20, 0.20, 0.10, -0.10, -0.30]
 ], dtype=float)
 
-# Enhanced piece values to make certain pieces more valuable in captures
 PIECE_VALUES = {
-    'K': 10000,  # Extreme value for king
+    'K': 10000,
     'Q': 9.5,
     'R': 5,
-    'B': 3.25,
+    'B': 7.25,
     'N': 3,
-    'P': 1.2,  # Increased pawn value to encourage pawn moves and captures
+    'P': 1.2,
     'F': 4,
     'C': 11,
-    'Z': 8  # Increased zombie value to make it stronger
+    'Z': 8
 }
 
 PST = {
@@ -140,12 +136,14 @@ PST = {
 
 
 class AI:
-    def __init__(self, depth=4, ai_color='w'):
+    def __init__(self, depth=4, ai_color='w', remaining_time = 6000, move_count = 0):
         self.depth = depth
         self.ai_color = ai_color
         self.opponent_color = 'b' if ai_color == 'w' else 'w'
-        # Capture bonus - increased to encourage more captures
-        self.capture_bonus = 0.3
+
+        self.capture_bonus = 6
+        self.remaining_time = remaining_time
+        self.move_count = move_count
 
     def evaluate(self, board: Board) -> int:
         ai_score = opp_score = 0
@@ -155,14 +153,13 @@ class AI:
         ai_pawns = []
         opp_pawns = []
 
-        # Material and positional scoring
+
         for pos, piece in board.pieces.items():
             piece_type = "N" if isinstance(piece, Knight) else piece.__class__.__name__[0]
             value = PIECE_VALUES[piece_type]
             file = ord(pos[0]) - ord('a')
             rank = int(pos[1]) - 1
 
-            # Apply piece square tables with color-specific orientation
             pst = PST[piece_type][7 - rank][file] if piece.color == 'b' else PST[piece_type][rank][file]
 
             if piece.color == self.ai_color:
@@ -175,9 +172,8 @@ class AI:
                     opp_pawns.append((pos, rank))
 
             if piece_type == 'K':
-                kings[piece.color] = pos  # Store position string
+                kings[piece.color] = pos
 
-        # Terminal states
         if not kings.get(self.ai_color):
             return -100000
         if not kings.get(self.opponent_color):
@@ -187,7 +183,6 @@ class AI:
         ai_score += self.evaluate_pawn_advancement(ai_pawns, self.ai_color)
         opp_score += self.evaluate_pawn_advancement(opp_pawns, self.opponent_color)
 
-        # Color-specific evaluations
         ai_score += self.evaluate_king_safety(board, kings[self.ai_color], self.ai_color)
         ai_score += self.evaluate_mobility(board, self.ai_color)
         ai_score += self.evaluate_pawn_structure(board, self.ai_color)
@@ -333,35 +328,63 @@ class AI:
         return score
 
     def evaluate_capture_opportunities(self, board, color):
-        """Evaluate potential captures to encourage aggressive play"""
         score = 0
-        opponent_color = 'b' if color == 'w' else 'w'
-
-        for piece in board.pieces.values():
-            if piece.color == color:
-                for move in piece.get_valid_moves(board):
-                    # Check if move is a capture
-                    if move in board.pieces and board.pieces[move].color == opponent_color:
-                        captured_piece = board.pieces[move]
-                        captured_type = "N" if isinstance(captured_piece, Knight) else \
-                        captured_piece.__class__.__name__[0]
-                        # Bonus for potential capture, weighted by the piece value
-                        capture_value = PIECE_VALUES[captured_type]
-                        score += capture_value * self.capture_bonus
-
+        for captured_piece in board.captured:
+            piece_type = "N" if isinstance(captured_piece, Knight) else captured_piece.__class__.__name__[0]
+            piece_value = PIECE_VALUES.get(piece_type, 1)
+            if captured_piece.color != color:
+                score += piece_value * self.capture_bonus  # Small bonus for capturing enemies
+            else:
+                score -= piece_value * 100  # Now completely outweighs any possible gain
         return score
 
-    def alpha_beta_minimax(self, board, depth, alpha, beta, maximizing):
+    def sort_moves(self, moves, parent_board):
+        def move_priority(move):
+            priority = 0
+            is_self_checkmate = move.is_checkmate()
+
+            # 1. Capture Bonus: Prioritize capturing high-value pieces
+            captured_piece = move.captured[0] if move.captured else None
+            if captured_piece:
+                piece_type = captured_piece.__class__.__name__[0]
+                priority += PIECE_VALUES.get(piece_type, 1) * 1.5
+
+                if piece_type == 'Z':
+                    priority += 1000
+
+
+            # 4. Check Threat: Reward moves that put the enemy king in check
+            enemy_king_pos = None
+            for pos, piece in move.pieces.items():
+                if piece.color == self.opponent_color and isinstance(piece, King):
+                    enemy_king_pos = pos
+                    break
+            if enemy_king_pos:
+                for pos, piece in move.pieces.items():
+                    if piece.color == self.ai_color and enemy_king_pos in piece.get_valid_moves(move):
+                        priority += 200  # Check bonus
+
+            # 5. **PENALTY for Self-Checkmate!**
+            if is_self_checkmate:
+                priority -= 10000  # Drastically reduce priority
+
+            return priority
+
+        return sorted(moves, key=move_priority, reverse=True)
+
+    def alpha_beta_minimax(self, board, depth, alpha, beta, maximizing, start_time, allowed_time):
+        if (time.time() - start_time) * 1000 >= allowed_time:
+            return self.evaluate(board)
         if depth == 0 or board.is_checkmate():
             return self.evaluate(board)
 
-        # Sort moves to improve pruning efficiency
-        moves = self.sort_moves(board)
-
+        moves = board.generate_successors()
         if maximizing:
             max_eval = -float('inf')
             for move in moves:
-                eval_score = self.alpha_beta_minimax(move, depth - 1, alpha, beta, False)
+                if (time.time() - start_time) * 1000 >= allowed_time:
+                    return self.evaluate(board)
+                eval_score = self.alpha_beta_minimax(move, depth - 1, alpha, beta, False, start_time, allowed_time)
                 max_eval = max(max_eval, eval_score)
                 alpha = max(alpha, eval_score)
                 if beta <= alpha:
@@ -370,162 +393,75 @@ class AI:
         else:
             min_eval = float('inf')
             for move in moves:
-                eval_score = self.alpha_beta_minimax(move, depth - 1, alpha, beta, True)
+                if (time.time() - start_time) * 1000 >= allowed_time:
+                    return self.evaluate(board)
+                eval_score = self.alpha_beta_minimax(move, depth - 1, alpha, beta, True, start_time, allowed_time)
                 min_eval = min(min_eval, eval_score)
                 beta = min(beta, eval_score)
                 if beta <= alpha:
                     break
             return min_eval
 
-    def sort_moves(self, board):
-        """Sort moves to improve alpha-beta pruning efficiency"""
-        moves = board.generate_successors()
-        scored_moves = []
-
-        # First check if the board's turn matches the AI color
-        maximizing = (board.turn == self.ai_color)
-
-        for move in moves:
-            # Quick evaluation of the move
-            score = self.evaluate(move)
-
-            # Prioritize capturing moves
-            if hasattr(move, "last_move") and "captured" in move.last_move:
-                score += 1000 if maximizing else -1000
-
-            scored_moves.append((move, score))
-
-        # Sort based on maximizing or minimizing
-        if maximizing:
-            scored_moves.sort(key=lambda x: x[1], reverse=True)
-        else:
-            scored_moves.sort(key=lambda x: x[1])
-
-        return [move for move, _ in scored_moves]
-
     def choose_best_move(self, board):
-        """
-        Choose the best move with improved pawn movement and capture prioritization.
-        First check for pawn moves that might be good, then look for captures,
-        then fall back to the standard alpha-beta search.
-        """
-        # Generate all possible moves
-        possible_moves = board.generate_successors()
+        possible_moves = list(board.generate_successors())
 
-        # Identify pawn/zombie moves and captures for potential prioritization
-        pawn_moves = []
-        capture_moves = []
+        # --- Opening Book Moves Based on Move Number ---
+        if self.ai_color == 'w':
+            if self.move_count == 0:
+                for new_board in possible_moves:
+                    if 'e3' in new_board.pieces and new_board.pieces['e3'].__class__.__name__[0] == 'Z':
+                        return new_board
+            elif self.move_count == 2:
+                for new_board in possible_moves:
+                    if 'f3' in new_board.pieces and new_board.pieces['f3'].__class__.__name__[0] == 'K':
+                        return new_board
+            elif self.move_count == 4:
+                for new_board in possible_moves:
+                    if 'b5' in new_board.pieces and new_board.pieces['b5'].__class__.__name__[0] == 'B':
+                        return new_board
+        else:
+            if self.move_count == 1:
+                for new_board in possible_moves:
+                    if 'f6' in new_board.pieces and new_board.pieces['f6'].__class__.__name__[0] == 'K':
+                        return new_board
+            elif self.move_count == 3:
+                for new_board in possible_moves:
+                    if 'e6' in new_board.pieces and new_board.pieces['e6'].__class__.__name__[0] == 'Z':
+                        return new_board
+            elif self.move_count == 5:
+                for new_board in possible_moves:
+                    if 'b6' in new_board.pieces and new_board.pieces['b6'].__class__.__name__[0] == 'P':
+                        return new_board
 
-        for move_board in possible_moves:
-            if hasattr(move_board, "last_move"):
-                # Check for pawn or zombie moves
-                if any(piece_name in move_board.last_move for piece_name in ["Peon", "Zombie"]):
-                    pawn_moves.append(move_board)
-
-                # Check for captures
-                if "captured" in move_board.last_move:
-                    capture_moves.append(move_board)
-
-        # For White, prioritize pawn development if in early game (pawn still on rank 2)
-        if self.ai_color == 'w' and any(pos[1] == '2' for pos in board.pieces
-                                        if pos in board.pieces and
-                                           (isinstance(board.pieces[pos], Peon) or isinstance(board.pieces[pos],
-                                                                                              Zombie)) and
-                                           board.pieces[pos].color == 'w'):
-            # Filter for forward pawn moves (especially e2-e4, d2-d4)
-            central_pawn_moves = [move for move in pawn_moves
-                                  if hasattr(move, "last_move") and
-                                  any(start_pos + " to " + end_pos in move.last_move
-                                      for start_pos, end_pos in
-                                      [("e2", "e4"), ("d2", "d4"), ("e2", "e3"), ("d2", "d3")])]
-
-            if central_pawn_moves:
-                return central_pawn_moves[0]  # Return the first central pawn move
-
-        # For Black, improve the zombie's play
-        if self.ai_color == 'b':
-            # Look for zombie moves that advance or capture
-            zombie_moves = [move for move in possible_moves
-                            if hasattr(move, "last_move") and
-                            "Zombie" in move.last_move]
-
-            # Sort zombie moves by preference:
-            # 1. Captures
-            # 2. Advancement toward opponent's side
-            if zombie_moves:
-                zombie_captures = [move for move in zombie_moves if "captured" in move.last_move]
-                if zombie_captures:
-                    return zombie_captures[0]  # Return a capturing zombie move
-
-                # Otherwise, find the most advanced zombie move
-                best_zombie_move = None
-                best_rank = -1
-
-                for move in zombie_moves:
-                    # Extract the target position from the last_move attribute
-                    if " to " in move.last_move:
-                        target_pos = move.last_move.split(" to ")[1].split()[0]
-                        target_rank = int(target_pos[1])
-
-                        # For black, lower rank numbers are better (closer to white's side)
-                        if target_rank < best_rank or best_rank == -1:
-                            best_rank = target_rank
-                            best_zombie_move = move
-
-                if best_zombie_move:
-                    return best_zombie_move
-
-        # Prioritize captures if available (for both colors)
-        if capture_moves:
-            # Sort captures by value of captured piece
-            best_capture = None
-            highest_value = -1
-
-            for move in capture_moves:
-                # Extract the captured piece information
-                captured_info = move.last_move.split("captured ")[1].split()[0]
-                captured_type = captured_info[0]  # First letter indicates piece type
-
-                # Convert to evaluation key if needed
-                if captured_type == "K":
-                    piece_value = PIECE_VALUES["K"]
-                elif captured_type == "N" or captured_type == "n":
-                    piece_value = PIECE_VALUES["N"]
-                else:
-                    piece_value = PIECE_VALUES.get(captured_type, 1)
-
-                if piece_value > highest_value:
-                    highest_value = piece_value
-                    best_capture = move
-
-            if best_capture:
-                return best_capture
-
-        # If no suitable pawn move or capture, use alpha-beta search
+        allowed_time = self.remaining_time - 500 if self.remaining_time > 500 else self.remaining_time
+        start_time = time.time()
         best_move = None
-        best_score = -float('inf')
-        alpha = -float('inf')
-        beta = float('inf')
-        is_maximizing = (board.turn == self.ai_color)
+        depth = 1  # Start shallow
+        time_exceeded = False
 
-        # Use move ordering for better alpha-beta efficiency
-        sorted_moves = self.sort_moves(board)
+        sorted_moves = self.sort_moves(possible_moves, board) if hasattr(self, "sort_moves") else possible_moves
 
-        for move in sorted_moves:
-            score = self.alpha_beta_minimax(move, depth=self.depth - 1, alpha=alpha, beta=beta,
-                                            maximizing=not is_maximizing)
-            if score > best_score:
-                best_score = score
-                best_move = move
-                alpha = max(alpha, best_score)
-            if beta <= alpha:
+        while (time.time() - start_time) * 1000 < allowed_time:
+            current_best_move = None
+            current_best_score = -float('inf')
+            alpha = -float('inf')
+            beta = float('inf')
+            is_maximizing = (board.turn == self.ai_color)
+
+            for move in sorted_moves:
+                if (time.time() - start_time) * 1000 >= allowed_time:
+                    time_exceeded = True
+                    break
+                score = self.alpha_beta_minimax(move, depth, alpha, beta, not is_maximizing, start_time, allowed_time)
+                if score > current_best_score:
+                    current_best_score = score
+                    current_best_move = move
+                    alpha = max(alpha, score)
+
+            if time_exceeded:
                 break
+            if current_best_move is not None:
+                best_move = current_best_move
+            depth += 1
 
         return best_move
-
-    def extract_captured_pieces(self, previous_board: Board, current_board: Board) -> list:
-        captured_pieces = []
-        for pos, piece in previous_board.pieces.items():
-            if pos not in current_board.pieces:
-                captured_pieces.append(piece)
-        return captured_pieces
