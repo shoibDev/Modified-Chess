@@ -69,6 +69,7 @@ class Board:
             self.grid[7 - rank][file] = str(piece)
 
     def __repr__(self) -> str:
+        self.refresh_grid()  # Ensure grid is synced before printing
         lines = ["+--------+"]  # 16 dashes for 8 columns × 2 chars
         for row_index in range(0, 8):
             row_chars = []

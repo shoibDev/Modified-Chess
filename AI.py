@@ -433,15 +433,35 @@ class AI:
                     if 'b6' in new_board.pieces and new_board.pieces['b6'].__class__.__name__[0] == 'P':
                         return new_board
 
-        allowed_time = self.remaining_time - 500 if self.remaining_time > 500 else self.remaining_time
+        # Emergency fast fallback
+        if self.remaining_time < 50:
+            return possible_moves[0]
+
+        # Dynamically assign max depth and allowed_time
+        if self.remaining_time > 5000:
+            max_depth = 5
+            allowed_time = 800
+        elif self.remaining_time > 2000:
+            max_depth = 4
+            allowed_time = 500
+        elif self.remaining_time > 1000:
+            max_depth = 3
+            allowed_time = 300
+        elif self.remaining_time > 200:
+            max_depth = 2
+            allowed_time = 150
+        else:
+            max_depth = 1
+            allowed_time = 70
+
         start_time = time.time()
         best_move = None
-        depth = 1  # Start shallow
+        depth = 1
         time_exceeded = False
 
         sorted_moves = self.sort_moves(possible_moves, board) if hasattr(self, "sort_moves") else possible_moves
 
-        while (time.time() - start_time) * 1000 < allowed_time:
+        while (time.time() - start_time) * 1000 < allowed_time and depth <= max_depth:
             current_best_move = None
             current_best_score = -float('inf')
             alpha = -float('inf')
@@ -464,4 +484,4 @@ class AI:
                 best_move = current_best_move
             depth += 1
 
-        return best_move
+        return best_move if best_move else possible_moves[0]

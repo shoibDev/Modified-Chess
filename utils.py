@@ -15,34 +15,35 @@ def print_boards(successors) -> None:
         print("\n")
 
 
-def parse_board() -> tuple[str, list[Piece]]:
-    import sys
-    lines = sys.stdin.readlines()
+def load_board_from_file(filename: str) -> tuple:
+    with open(filename, 'r') as f:
+        lines = f.readlines()
+    return parse_board_from_lines(lines)
 
-    # Read the first line to get turn info (e.g., "w 0 60000 0")
+def parse_board_from_lines(lines) -> tuple:
     turn, used_time, total_time, move_number = lines[0].split()
+    piece_list = []
+    inside = False
 
-    piece_list: list[Piece] = []
-    inside_braces: bool = False
+    from pieces import Flinger, Peon, Knight, Cannon, Queen, King, Zombie, Bishop, Rook
+    PIECE_MAP = {
+        "F": Flinger, "P": Peon, "N": Knight, "C": Cannon,
+        "Q": Queen, "K": King, "Z": Zombie, "B": Bishop, "R": Rook
+    }
 
     for line in lines[1:]:
         line = line.strip()
-        if line == "{":  # Start reading pieces
-            inside_braces = True
+        if line == "{":
+            inside = True
             continue
-        elif line == "}":  # Stop reading pieces
-            inside_braces = False
+        if line == "}":
             break
-
-        if inside_braces:
-            if ":" in line:
-                position, piece_code = line.split(":")
-                position = position.strip()
-                # Remove quotes, commas, and any extra whitespace.
-                piece_code = piece_code.strip().strip("',")
-                color, piece_type = piece_code[0], piece_code[1]
-                piece = PIECE_MAP[piece_type](color, position)
-                piece_list.append(piece)
+        if inside and ":" in line:
+            pos, code = line.split(":")
+            code = code.strip().strip("',")
+            color, piece_type = code[0], code[1]
+            piece = PIECE_MAP[piece_type](color, pos.strip())
+            piece_list.append(piece)
 
     return turn, used_time, total_time, move_number, piece_list
 

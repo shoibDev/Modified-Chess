@@ -1,12 +1,9 @@
-import sys
-from MoveGenerator import MoveGenerator
 from Board import Board
-from utils import parse_board, print_board, print_boards
+from utils import load_board_from_file
 from AI import AI
-import time
 
-def main():
-    turn, used_time, total_time, move_number, piece_list = parse_board()
+if __name__ == "__main__":
+    turn, used_time, total_time, move_number, piece_list = load_board_from_file("board")
 
     # Create the current board and add all pieces.
     current_board = Board()
@@ -20,8 +17,8 @@ def main():
 
     # Call the AI to choose the best move from the current board.
     best_move_board = ai.choose_best_move(current_board)
-    print_board(best_move_board,turn)
+    print(best_move_board)
 
 
-    
+
 
